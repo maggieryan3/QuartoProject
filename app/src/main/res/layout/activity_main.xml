@@ -40,12 +40,26 @@
             android:layout_gravity="right" />
 
         <ImageView
+            android:layout_width="66dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bigHollowOrangeSquare"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/bigHollowOrangeSquare"
+            android:layout_weight="0.35" />
+
+        <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:id="@+id/smallBlueHollowSquare"
             android:src="@drawable/blueHollowSquare"
             android:baselineAlignBottom="false"
             android:layout_gravity="right" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_gravity="center_horizontal" />
 
         <ImageView
             android:layout_width="25dp"
@@ -71,6 +85,14 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:id="@+id/bigFilledOrangeSquare"
+            android:layout_gravity="right"
+            android:src="@mipmap/hello"
+            android:layout_weight="0.08" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/bigBlueSolidCircle"
             android:src="@drawable/blueSolidCircle"
             android:layout_gravity="right" />
@@ -88,22 +110,37 @@
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_gravity="bottom"
-        android:background="#010101"
+        android:background="#007777"
         android:baselineAligned="true">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_width="125dp"
+            android:layout_height="100dp"
             android:text="Exit"
-            android:id="@+id/exit" />
+            android:id="@+id/exit"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:background="#c5d789"
+            android:textColor="#f1c232"
+            android:textStyle="bold"
+            android:textSize="39dp"
+            android:typeface="serif" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
             android:layout_width="200dp"
-            android:layout_height="fill_parent"
-            android:text="QUARTO"
+            android:layout_height="100dp"
+            android:text="QUARTO!"
             android:id="@+id/quarto"
-            android:layout_marginLeft="275dp" />
+            android:layout_marginLeft="200dp"
+            android:elegantTextHeight="false"
+            android:textSize="39sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:textColor="#f1c232"
+            android:background="#c5d789"
+            android:shadowColor="#007777"
+            android:layout_marginTop="20dp"
+            android:textColorHighlight="#007777" />
     </LinearLayout>
 
 </FrameLayout>
