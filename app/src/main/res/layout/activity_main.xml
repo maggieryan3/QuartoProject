@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +15,7 @@
     <SurfaceView
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:id="@+id/surfaceView"
+        android:id="@+id/background"
         android:background="#ffffff" />
 
     <LinearLayout
@@ -25,84 +26,200 @@
         android:background="#ffffff"
         android:weightSum="1">
 
+    </LinearLayout>
+
+    <SurfaceView
+        android:layout_width="533dp"
+        android:layout_height="460dp"
+        android:id="@+id/board"
+        android:background="@drawable/gameboard" />
+
+    <SurfaceView
+        android:id="@+id/sideboard"
+        android:layout_marginLeft="533dp"
+        android:layout_width="360dp"
+        android:layout_height="460dp"
+        android:background="@drawable/sideboard5" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="364dp"
+        android:layout_height="463dp"
+        android:layout_marginLeft="533dp"
+        android:id="@+id/sideboardverticalview"></LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="595dp"
+        android:id="@+id/placepiecelayout"
+        android:layout_marginTop="10dp"
+        android:layout_height="82dp"
+        android:layout_width="239dp">
+
+        <ToggleButton
+            android:text="ToggleButton"
+            android:id="@+id/toggleButton"
+            android:textOff="Place the piece!"
+            android:textOn="Pick the piece!"
+            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="215dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="239dp"
+        android:layout_height="92dp"
+        android:id="@+id/toprowofpieces"
+        android:layout_marginLeft="595dp"
+        android:layout_marginTop="92dp"
+        android:weightSum="1">
+
+        <ImageView
+            app:srcCompat="@drawable/blue_large_hollow_square"
+            android:id="@+id/bluelargehollowsquare"
+            android:layout_weight="0.17"
+            android:layout_marginLeft="5dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <ImageView
+            app:srcCompat="@drawable/blue_large_solid_square"
+            android:id="@+id/bluelargefilledsquare"
+            android:layout_weight="0.33"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+        <ImageView
+            app:srcCompat="@drawable/blue_small_hollow_square"
+            android:id="@+id/bluesmallhollowsquare"
+            android:layout_weight="0.21"
+            android:layout_marginTop="8dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:srcCompat="@drawable/blue_small_solid_square"
+            android:id="@+id/bluesmallfilledsquare"
+            android:layout_weight="0.28"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="239dp"
+        android:layout_height="92dp"
+        android:id="@+id/midupperrowofpieces"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="593dp">
+
+        <ImageView
+            android:layout_width="61dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/yellow_large_hollow_square"
+            android:id="@+id/yellowlargehollowsquare"
+            android:layout_marginLeft="5dp" />
+
+        <ImageView
+            android:layout_width="69dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/yellow_large_solid_square"
+            android:id="@+id/yellowlargefilledsquare" />
+
+        <ImageView
+            android:layout_width="52dp"
+            android:layout_height="35dp"
+            app:srcCompat="@drawable/yellow_small_hollow_square"
+            android:id="@+id/yellowsmallhollowsquare"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:srcCompat="@drawable/yellow_small_solid_square"
+            android:id="@+id/yellowsmallfilledsquare"
+            android:layout_weight="7.29"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="239dp"
+        android:layout_height="92dp"
+        android:id="@+id/midlowerrowofpieces"
+        android:layout_marginLeft="593dp"
+        android:layout_marginTop="272dp">
+
+        <ImageView
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/blue_large_hollow_circle"
+            android:id="@+id/bluelargehollowcircle"
+            android:layout_width="61dp"
+            android:layout_marginLeft="5dp" />
+
+        <ImageView
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/blue_large_solid_circle"
+            android:id="@+id/bluelargefilledcircle"
+            android:layout_width="71dp" />
+
         <ImageView
             android:layout_width="50dp"
+            android:layout_height="35dp"
+            app:srcCompat="@drawable/blue_small_hollow_circle"
+            android:id="@+id/bluesmallhollowcircle"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:srcCompat="@drawable/blue_small_solid_circle"
+            android:id="@+id/bluesmallfilledcircle"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="239dp"
+        android:layout_height="92dp"
+        android:id="@+id/lowerrowofpieces"
+        android:layout_marginTop="364dp"
+        android:layout_marginLeft="592dp">
+
+        <ImageView
+            android:layout_width="61dp"
             android:layout_height="50dp"
-            android:id="@+id/bigBlueHollowSquare"
-            android:src="@drawable/blueHollowSquare"
-            android:layout_gravity="right" />
+            app:srcCompat="@drawable/yellow_large_hollow_circle"
+            android:id="@+id/yellowlargehollowcircle"
+            android:layout_marginLeft="5dp" />
+
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/yellow_large_solid_circle"
+            android:id="@+id/yellowlargefilledcircle" />
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/bigBlueHollowCircle"
-            android:src="@drawable/blueHollowCircle"
-            android:layout_gravity="right" />
+            android:layout_height="35dp"
+            app:srcCompat="@drawable/yellow_small_hollow_circle"
+            android:id="@+id/yellowsmallhollowcircle"
+            android:layout_marginTop="8dp" />
 
         <ImageView
-            android:layout_width="66dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/bigHollowOrangeSquare"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/bigHollowOrangeSquare"
-            android:layout_weight="0.35" />
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:srcCompat="@drawable/yellow_small_solid_circle"
+            android:id="@+id/yellowsmallfilledcircle"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp" />
 
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/smallBlueHollowSquare"
-            android:src="@drawable/blueHollowSquare"
-            android:baselineAlignBottom="false"
-            android:layout_gravity="right" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:layout_gravity="center_horizontal" />
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/smallBlueHollowCircle"
-            android:src="@drawable/blueHollowCircle"
-            android:layout_gravity="right" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/bigBlueSolidSquare"
-            android:src="@drawable/blueSolidSquare"
-            android:layout_gravity="right" />
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/smallBlueSolidSquare"
-            android:src="@drawable/blueSolidSquare"
-            android:layout_gravity="right" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/bigFilledOrangeSquare"
-            android:layout_gravity="right"
-            android:src="@mipmap/hello"
-            android:layout_weight="0.08" />
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/bigBlueSolidCircle"
-            android:src="@drawable/blueSolidCircle"
-            android:layout_gravity="right" />
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:id="@+id/smallBlueSolidCircle"
-            android:src="@drawable/blueSolidCircle"
-            android:layout_gravity="right" />
     </LinearLayout>
 
     <LinearLayout
@@ -142,5 +259,11 @@
             android:layout_marginTop="20dp"
             android:textColorHighlight="#007777" />
     </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </GridLayout>
 
 </FrameLayout>
