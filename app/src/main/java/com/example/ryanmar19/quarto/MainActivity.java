@@ -19,29 +19,7 @@ public class MainActivity extends Activity {
     Button quartoButton = (Button) findViewById(R.id.quartoButton);
     Button exitButton = (Button) findViewById(R.id.exitButton);
     ToggleButton userMessage = (ToggleButton) findViewById(R.id.userMessageButton);
-
-   /* //piece setup
-    ImageView blueLargeHollowSquare = (ImageView) findViewById(R.id.bluelargehollowsquare);
-    blueLargeHollowSquare.setOnTouchListener(new View.OnTouchListener() {
-        Rect rect;
-
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            if(event.getAction() == MotionEvent.ACTION_DOWN){
-                blueLargeHollowSquare.setColorFilter(Color.argb(50, 0, 0, 0));
-                rect = new Rect(v.getLeft(), v.getTop(), v.getRight(), v.getBottom());
-            }
-            if(event.getAction() == MotionEvent.ACTION_UP){
-                blueLargeHollowSquare.setColorFilter(Color.argb(0, 0, 0, 0));
-            }
-            if(event.getAction() == MotionEvent.ACTION_MOVE){
-                if(!rect.contains(v.getLeft() + (int) event.getX(), v.getTop() + (int) event.getY())){
-                    blueLargeHollowSquare.setColorFilter(Color.argb(0, 0, 0, 0));
-                }
-            }
-            return false;
-        }
-    })*/
+    ImageView bluelargehollowsquare = (ImageView) findViewById(R.id.bluelargehollowsquare);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +29,7 @@ public class MainActivity extends Activity {
         //listeners
         quartoButton.setOnClickListener(new ButtonListener());
         exitButton.setOnClickListener(new ButtonListener());
+        userMessage.setOnClickListener(new ToggleListener());
 
         //other
         int stage = 0;

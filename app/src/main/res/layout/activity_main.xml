@@ -83,7 +83,8 @@
             android:layout_weight="0.17"
             android:layout_marginLeft="5dp"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            />
 
         <ImageView
             app:srcCompat="@drawable/blue_large_solid_square"
