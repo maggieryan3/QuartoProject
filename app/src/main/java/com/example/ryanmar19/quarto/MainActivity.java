@@ -20,6 +20,7 @@ public class MainActivity extends Activity {
     Button exitButton = (Button) findViewById(R.id.exitButton);
     ToggleButton userMessage = (ToggleButton) findViewById(R.id.userMessageButton);
     ImageView bluelargehollowsquare = (ImageView) findViewById(R.id.bluelargehollowsquare);
+    //ToggleButton helpText = (ToggleButton) findViewById(R.id.helpTextToggle)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

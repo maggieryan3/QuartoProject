@@ -260,6 +260,23 @@
             android:shadowColor="#007777"
             android:layout_marginTop="20dp"
             android:textColorHighlight="#007777" />
+
+        <ToggleButton
+            android:textOff="HELP?"
+            android:textOn="HELP OFF"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:id="@+id/helpTextToggle"
+            android:layout_weight="0.22"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#f1c232"
+            android:textSize="39sp"
+            android:textStyle="bold"
+            android:typeface="serif"
+            android:background="#c5d789"
+            android:longClickable="false" />
     </LinearLayout>
 
 </FrameLayout>
