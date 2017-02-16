@@ -30,8 +30,5 @@ public class MainActivity extends Activity {
         quartoButton.setOnClickListener(new ButtonListener());
         exitButton.setOnClickListener(new ButtonListener());
         userMessage.setOnClickListener(new ToggleListener());
-
-        //other
-        int stage = 0;
     }
 }

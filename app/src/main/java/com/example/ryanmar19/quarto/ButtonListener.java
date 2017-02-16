@@ -4,9 +4,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import static com.example.ryanmar19.quarto.R.id.bluelargehollowsquare;
-import static com.example.ryanmar19.quarto.R.id.quartoButton;
-
 /**
  * Created by ryanmar19 on 2/15/2017.
  */
@@ -19,7 +16,7 @@ public class ButtonListener implements View.OnClickListener
     public void onClick(View view) {
         int buttonSelection = view.getId();
 
-        if(buttonSelection == quartoButton){
+        if(buttonSelection == R.id.quartoButton){
             Button myButton = (Button) view;
             if(stage == 0){
                 myButton.setText("Try Again!");
@@ -38,7 +35,7 @@ public class ButtonListener implements View.OnClickListener
             }
         }
 
-        if(buttonSelection == bluelargehollowsquare){
+        if(buttonSelection == R.id.bluelargehollowsquare){
             ImageView myImage = (ImageView)view;
 
             //myImage.setImageTintMode();
