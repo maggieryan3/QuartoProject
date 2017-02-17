@@ -8,28 +8,49 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import static com.example.ryanmar19.quarto.R.id.quartoButton;
 
 public class MainActivity extends Activity {
 
-    //button setup
-    Button quartoButton = (Button) findViewById(R.id.quartoButton);
-    Button exitButton = (Button) findViewById(R.id.exitButton);
-    ToggleButton userMessage = (ToggleButton) findViewById(R.id.userMessageButton);
-    ImageView bluelargehollowsquare = (ImageView) findViewById(R.id.bluelargehollowsquare);
-    //ToggleButton helpText = (ToggleButton) findViewById(R.id.helpTextToggle)
+    //button declarations
+    Button myQuartoButton;
+    Button myExitButton;
+    ToggleButton userMessage;
+    CheckBox turnCheckbox;
+
+    //image declarations
+    ImageView bluelargehollowsquare;
+    ImageView bluelargefilledsquare;
+    ImageView bluesmallhollowsquare;
+    ImageView bluesmallfilledsquare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //button setup
+        myQuartoButton = (Button) findViewById(R.id.theQuartoButton);
+        myExitButton = (Button) findViewById(R.id.exitButton);
+        userMessage = (ToggleButton) findViewById(R.id.userMessageButton);
+        turnCheckbox = (CheckBox) findViewById(R.id.turnCheckbox);
+
+        //pieces setup
+        bluelargehollowsquare = (ImageView) findViewById(R.id.bluelargehollowsquare);
+        bluelargefilledsquare = (ImageView) findViewById(R.id.bluelargefilledsquare);
+        bluesmallhollowsquare = (ImageView) findViewById(R.id.bluesmallhollowsquare);
+        bluesmallfilledsquare = (ImageView) findViewById(R.id.bluesmallfilledsquare);
+
         //listeners
-        quartoButton.setOnClickListener(new ButtonListener());
-        exitButton.setOnClickListener(new ButtonListener());
+        myQuartoButton.setOnClickListener(new ButtonListener());
+        myExitButton.setOnClickListener(new ButtonListener());
         userMessage.setOnClickListener(new ToggleListener());
+        bluelargehollowsquare.setOnClickListener(new ButtonListener());
+        bluelargefilledsquare.setOnClickListener(new ButtonListener());
+        turnCheckbox.setOnClickListener(new ButtonListener());
     }
 }

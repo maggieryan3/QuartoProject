@@ -19,12 +19,5 @@ public class ToggleListener implements View.OnClickListener {
             ToggleButton myButton = (ToggleButton)v;
             //to be continued
         }
-
-        /* For new Help Text Toggle button
-        if (toggleSelection == R.id.helpTextToggle)
-        {
-            ToggleButton myButton = (ToggleButton)v;
-        }
-        */
     }
 }

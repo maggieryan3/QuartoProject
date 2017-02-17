@@ -35,6 +35,19 @@
         android:id="@+id/board"
         android:background="@drawable/gameboard" />
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="169dp"
+        android:layout_height="69dp"
+        android:weightSum="1">
+
+        <CheckBox
+            android:text="Finish Turn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/turnCheckbox" />
+    </LinearLayout>
+
     <SurfaceView
         android:id="@+id/sideboard"
         android:layout_marginLeft="533dp"
@@ -84,6 +97,7 @@
             android:layout_marginLeft="5dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:adjustViewBounds="true"
             />
 
         <ImageView
@@ -249,7 +263,7 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:text="QUARTO!"
-            android:id="@+id/quartoButton"
+            android:id="@+id/theQuartoButton"
             android:layout_marginLeft="200dp"
             android:elegantTextHeight="false"
             android:textSize="39sp"
@@ -261,22 +275,6 @@
             android:layout_marginTop="20dp"
             android:textColorHighlight="#007777" />
 
-        <ToggleButton
-            android:textOff="HELP?"
-            android:textOn="HELP OFF"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:id="@+id/helpTextToggle"
-            android:layout_weight="0.22"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="20dp"
-            android:textColor="#f1c232"
-            android:textSize="39sp"
-            android:textStyle="bold"
-            android:typeface="serif"
-            android:background="#c5d789"
-            android:longClickable="false" />
     </LinearLayout>
 
 </FrameLayout>
