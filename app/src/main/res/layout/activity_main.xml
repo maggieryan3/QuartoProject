@@ -105,7 +105,9 @@
             android:id="@+id/bluelargefilledsquare"
             android:layout_weight="0.33"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             app:srcCompat="@drawable/blue_small_hollow_square"
@@ -113,7 +115,9 @@
             android:layout_weight="0.21"
             android:layout_marginTop="8dp"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_width="35dp"
@@ -121,7 +125,9 @@
             app:srcCompat="@drawable/blue_small_solid_square"
             android:id="@+id/bluesmallfilledsquare"
             android:layout_weight="0.28"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -137,20 +143,26 @@
             android:layout_height="50dp"
             app:srcCompat="@drawable/yellow_large_hollow_square"
             android:id="@+id/yellowlargehollowsquare"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_width="69dp"
             android:layout_height="50dp"
             app:srcCompat="@drawable/yellow_large_solid_square"
-            android:id="@+id/yellowlargefilledsquare" />
+            android:id="@+id/yellowlargefilledsquare"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_width="52dp"
             android:layout_height="35dp"
             app:srcCompat="@drawable/yellow_small_hollow_square"
             android:id="@+id/yellowsmallhollowsquare"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_width="35dp"
@@ -158,7 +170,9 @@
             app:srcCompat="@drawable/yellow_small_solid_square"
             android:id="@+id/yellowsmallfilledsquare"
             android:layout_weight="7.29"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            />
 
     </LinearLayout>
 
@@ -175,20 +189,26 @@
             app:srcCompat="@drawable/blue_large_hollow_circle"
             android:id="@+id/bluelargehollowcircle"
             android:layout_width="61dp"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_height="50dp"
             app:srcCompat="@drawable/blue_large_solid_circle"
             android:id="@+id/bluelargefilledcircle"
-            android:layout_width="71dp" />
+            android:layout_width="71dp"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="35dp"
             app:srcCompat="@drawable/blue_small_hollow_circle"
             android:id="@+id/bluesmallhollowcircle"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_width="35dp"
@@ -196,7 +216,9 @@
             app:srcCompat="@drawable/blue_small_solid_circle"
             android:id="@+id/bluesmallfilledcircle"
             android:layout_weight="1"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            />
 
     </LinearLayout>
 
@@ -213,20 +235,26 @@
             android:layout_height="50dp"
             app:srcCompat="@drawable/yellow_large_hollow_circle"
             android:id="@+id/yellowlargehollowcircle"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_width="76dp"
             android:layout_height="50dp"
             app:srcCompat="@drawable/yellow_large_solid_circle"
-            android:id="@+id/yellowlargefilledcircle" />
+            android:id="@+id/yellowlargefilledcircle"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="35dp"
             app:srcCompat="@drawable/yellow_small_hollow_circle"
             android:id="@+id/yellowsmallhollowcircle"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            />
 
         <ImageView
             android:layout_width="35dp"
@@ -234,7 +262,9 @@
             app:srcCompat="@drawable/yellow_small_solid_circle"
             android:id="@+id/yellowsmallfilledcircle"
             android:layout_weight="1"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            />
 
     </LinearLayout>
 
