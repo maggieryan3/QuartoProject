@@ -13,6 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+/*Homework#4d
+[10] When tapped, first game piece in first row (large hollow blue square) will be highlighted with slight white tint to indicate user has selected it.
+[5] When tapped again, it reverts to being drawn in the original way.
+[5] Second game piece in first row (large solid blue square) responds in the same way.
+[10] Quarto button, when tapped, will say "WINNER!" in green or "TRY AGAIN!" in red to signify in player did win game or not.
+[5] Toggle button, when tapped, alternates between "PICK THE PIECE!" and "PLAY THE PIECE!" to indicate what a user's next move is.
+[15] CheckBox in top left corner that when tapped will signify the end of a users turn. Alternates between "Finish Turn" and "Turn Complete!"
+*/
 
 public class MainActivity extends Activity {
 
@@ -49,8 +57,8 @@ public class MainActivity extends Activity {
         myQuartoButton.setOnClickListener(new ButtonListener());
         myExitButton.setOnClickListener(new ButtonListener());
         userMessage.setOnClickListener(new ToggleListener());
+        turnCheckbox.setOnClickListener(new ButtonListener());
         bluelargehollowsquare.setOnClickListener(new ButtonListener());
         bluelargefilledsquare.setOnClickListener(new ButtonListener());
-        turnCheckbox.setOnClickListener(new ButtonListener());
     }
 }

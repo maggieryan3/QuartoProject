@@ -36,7 +36,7 @@ public class ButtonListener implements View.OnClickListener
             }
             else if(quartoStage == 2){
                 myButton.setText("QUARTO!");
-                myButton.setBackgroundColor(0xFFCCCC99);
+                myButton.setBackgroundColor(0xFFc5d789);
                 quartoStage = 0;
             }
         }
@@ -61,11 +61,12 @@ public class ButtonListener implements View.OnClickListener
             ImageView myImage = (ImageView)view;
 
             if(imageStage == 0) {
-                myImage.setColorFilter(Color.argb(255, 255, 255, 255)); // White Tint
+                myImage.setColorFilter(Color.argb(30, 255, 255, 255)); // White Tint
                 imageStage = 1;
             }
-            if(imageStage == 1) {
+            else if(imageStage == 1) {
                 myImage.clearColorFilter(); // no filter
+                imageStage = 0;
             }
         }
 

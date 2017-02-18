@@ -98,7 +98,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/blue_large_hollow_square" />
 
         <ImageView
             app:srcCompat="@drawable/blue_large_solid_square"
@@ -107,7 +107,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/blue_large_solid_square" />
 
         <ImageView
             app:srcCompat="@drawable/blue_small_hollow_square"
@@ -117,7 +117,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/blue_small_hollow_square" />
 
         <ImageView
             android:layout_width="35dp"
@@ -127,7 +127,7 @@
             android:layout_weight="0.28"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/blue_small_solid_square" />
     </LinearLayout>
 
     <LinearLayout
@@ -145,7 +145,7 @@
             android:id="@+id/yellowlargehollowsquare"
             android:layout_marginLeft="5dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/yellow_large_hollow_square" />
 
         <ImageView
             android:layout_width="69dp"
@@ -153,7 +153,7 @@
             app:srcCompat="@drawable/yellow_large_solid_square"
             android:id="@+id/yellowlargefilledsquare"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/yellow_large_solid_square" />
 
         <ImageView
             android:layout_width="52dp"
@@ -162,7 +162,7 @@
             android:id="@+id/yellowsmallhollowsquare"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/yellow_small_hollow_square" />
 
         <ImageView
             android:layout_width="35dp"
@@ -172,7 +172,7 @@
             android:layout_weight="7.29"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/yellow_small_solid_square" />
 
     </LinearLayout>
 
@@ -186,12 +186,12 @@
 
         <ImageView
             android:layout_height="50dp"
-            app:srcCompat="@drawable/blue_large_hollow_circle"
+
             android:id="@+id/bluelargehollowcircle"
             android:layout_width="61dp"
             android:layout_marginLeft="5dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/blue_large_hollow_circle" />
 
         <ImageView
             android:layout_height="50dp"
@@ -199,7 +199,7 @@
             android:id="@+id/bluelargefilledcircle"
             android:layout_width="71dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/blue_large_solid_circle" />
 
         <ImageView
             android:layout_width="50dp"
@@ -208,7 +208,7 @@
             android:id="@+id/bluesmallhollowcircle"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/blue_small_hollow_circle" />
 
         <ImageView
             android:layout_width="35dp"
@@ -218,7 +218,7 @@
             android:layout_weight="1"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/blue_small_solid_circle" />
 
     </LinearLayout>
 
@@ -237,7 +237,7 @@
             android:id="@+id/yellowlargehollowcircle"
             android:layout_marginLeft="5dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/yellow_large_hollow_circle" />
 
         <ImageView
             android:layout_width="76dp"
@@ -245,7 +245,7 @@
             app:srcCompat="@drawable/yellow_large_solid_circle"
             android:id="@+id/yellowlargefilledcircle"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/yellow_large_solid_circle" />
 
         <ImageView
             android:layout_width="50dp"
@@ -254,7 +254,7 @@
             android:id="@+id/yellowsmallhollowcircle"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/yellow_small_hollow_circle" />
 
         <ImageView
             android:layout_width="35dp"
@@ -264,7 +264,7 @@
             android:layout_weight="1"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
-            />
+            android:src="@mipmap/yellow_small_solid_circle" />
 
     </LinearLayout>
 
@@ -287,7 +287,8 @@
             android:textColor="#f1c232"
             android:textStyle="bold"
             android:textSize="39dp"
-            android:typeface="serif" />
+            android:typeface="serif"
+            />
 
         <Button
             android:layout_width="200dp"
