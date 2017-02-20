@@ -24,6 +24,8 @@ import android.widget.ToggleButton;
 
 public class MainActivity extends Activity {
 
+    Piece piece[] = new Piece[16]; //Array of all game pieces
+
     //button declarations
     Button myQuartoButton;
     Button myExitButton;
