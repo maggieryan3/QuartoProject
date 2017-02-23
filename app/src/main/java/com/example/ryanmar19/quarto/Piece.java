@@ -9,7 +9,10 @@ import android.widget.ImageView;
 public class Piece {
 
     //Instance Variables
-    int pieceId;
-    ImageView myPiece;
+    int myPieceId;
+    char color; //'b' for blue, 'y' for yellow
+    char size; //'s' for small, 'l' for large
+    char solidity; //'f' for filled, 'h' for hollow
+    char shape; //'c' for circle, 's' for square
 
 }
