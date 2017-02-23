@@ -38,9 +38,6 @@ public class MainActivity extends Activity {
     ImageView bluesmallhollowsquare;
     ImageView bluesmallfilledsquare;
 
-    //pieces array
-    Piece pieces[] = new Piece[16];
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -150,14 +150,14 @@ public class QuartoState {
     public QuartoState(QuartoState original) {
 
         //Pieces
-        Piece pieces[] = new Piece[16];
+        pieces = new Piece[16];
         for(int i=0; i<16; i++)
         {
             pieces[i] = original.pieces[i];
         }
 
         //Board
-        Piece boardPieces[][] = new Piece[4][4]; //Array of pieces on board
+        boardPieces = new Piece[4][4];
         for(int i=0; i<4; i++) {
             for (int j = 0; j < 4; j++) {
                 boardPieces[i][j] = original.boardPieces[i][j];
@@ -165,7 +165,7 @@ public class QuartoState {
         }
 
         //Bank
-        Piece bankPieces[] = new Piece[16]; //Array of pieces in bank
+        bankPieces = new Piece[16];
         for(int i=0; i<16; i++)
         {
             bankPieces[i] = original.bankPieces[i];
@@ -195,16 +195,23 @@ public class QuartoState {
         return turn;
     }
 
-    //set who's turn it is
-    public void setTurn (int turn)
+    //change turn
+    public void changeTurn ()
     {
-        turn = this.turn;
+        if(turn == 1)
+        {
+            turn = 2;
+        }
+        if(turn == 2)
+        {
+            turn = 1;
+        }
     }
 
     //get a piece from the bank
     public Piece getBankPiece(int pieceNumber)
     {
-        return pieces[pieceNumber];
+        return bankPieces[pieceNumber];
     }
 
     //get a piece from the board
@@ -213,14 +220,15 @@ public class QuartoState {
         return boardPieces[row][col];
     }
 
-    //sets place on board to a certain piece
-    public void setBoardPiece(Piece piece, int row, int col)
+    //moves piece from bank to board
+    public void setBoardPiece(Piece piece, int boardRow, int boardCol)
     {
-        boardPieces[row][col] = piece;
+        boardPieces[boardRow][boardCol] = piece;
+        bankPieces[piece.myPieceId] = null;
     }
 
     //get ID of piece
-    public int getPiecesId(Piece piece)
+    public int getPieceId(Piece piece)
     {
         return piece.myPieceId;
     }
