@@ -14,7 +14,7 @@ package com.example.ryanmar19.quarto;
    {
        for (int row = 0; row < 3; row++) {
            //color
-           if (pieces[col][row].color != pieces[col][row + 1].color) {
+           if (boardPieces[col][row].color != boardPieces[col][row + 1].color) {
                colorEqual = false;
            }
            //size
@@ -28,7 +28,7 @@ package com.example.ryanmar19.quarto;
    {
        for (int col = 0; col<3; col++) {
            //color
-           if (pieces[col][row].color != pieces[col+1][row].color) {
+           if (boardPieces[col][row].color != boardPieces[col+1][row].color) {
                colorEqual = false;
            }
            //size
@@ -40,7 +40,7 @@ package com.example.ryanmar19.quarto;
    //checking cross - top left to bottom right
    for(int col = 0; col<3; col++){
        for (int row = 0; row<3; row++) {
-           if (pieces[col][row].color != pieces[col+1][row+1].color) {
+           if (boardPieces[col][row].color != boardPieces[col+1][row+1].color) {
                colorEqual = false;
            }
            //size
@@ -52,7 +52,7 @@ package com.example.ryanmar19.quarto;
    //checking cross - bottom left to top right
    for(int col = 0; col<3; col++){
        for (int row = 4; row>0; row--) {
-           if (pieces[col][row].color != pieces[col+1][row-1].color) {
+           if (boardPieces[col][row].color != boardPieces[col+1][row-1].color) {
                colorEqual = false;
            }
            //size
