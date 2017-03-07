@@ -1,10 +1,12 @@
-package com.example.ryanmar19.quarto;
+package com.example.ryanmar19.quarto.quarto;
 
 import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+
+import com.example.ryanmar19.quarto.R;
 
 /**
  * Created by ryanmar19 on 2/15/2017.

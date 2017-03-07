@@ -1,7 +1,9 @@
-package com.example.ryanmar19.quarto;
+package com.example.ryanmar19.quarto.quarto;
 
 import android.view.View;
 import android.widget.ToggleButton;
+
+import com.example.ryanmar19.quarto.R;
 
 /**
  * Created by ryanmar19 on 2/13/2017.

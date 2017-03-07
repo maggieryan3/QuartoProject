@@ -1,6 +1,6 @@
-package com.example.ryanmar19.quarto;
+package com.example.ryanmar19.quarto.quarto;
 
-import android.widget.ImageView;
+import com.example.ryanmar19.quarto.R;
 
 /**
  * Created by maggie on 2/19/2017.
