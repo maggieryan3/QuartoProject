@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:context="com.example.ryanmar19.quarto.quarto.MainActivity"
+    tools:context="com.example.ryanmar19.quarto.quarto.QuartoMainActivity"
     android:orientation="vertical"
     android:weightSum="1">
 

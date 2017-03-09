@@ -20,12 +20,16 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.ryanmar19.quarto.R;
 import com.example.ryanmar19.quarto.game.config.GameConfig;
 import com.example.ryanmar19.quarto.game.config.GamePlayerType;
 import com.example.ryanmar19.quarto.game.util.IPCoder;
 import com.example.ryanmar19.quarto.game.util.MessageBox;
 
 import java.util.ArrayList;
+import android.content.DialogInterface.OnClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.TabHost.TabSpec;
 
 /**
  * class GameMainActivity
@@ -339,10 +343,10 @@ public abstract class GameMainActivity extends Activity implements
         // Setup the tabbed dialog on the layout and add the content of each tab
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
-        TabHost.TabSpec localTabSpec = tabHost.newTabSpec(localTabString());
+        TabSpec localTabSpec = tabHost.newTabSpec(localTabString());
         localTabSpec.setContent(R.id.localGameTab);
         localTabSpec.setIndicator(localTabString());
-        TabHost.TabSpec remoteTabSpec = tabHost.newTabSpec(remoteTabString());
+        TabSpec remoteTabSpec = tabHost.newTabSpec(remoteTabString());
         remoteTabSpec.setContent(R.id.remoteGameTab);
         remoteTabSpec.setIndicator(remoteTabString());
         tabHost.addTab(localTabSpec);
@@ -679,7 +683,7 @@ public abstract class GameMainActivity extends Activity implements
             String negLabel =
                     getResources().getString(R.string.dialog_continue_label);
             MessageBox.popUpChoice(quitQuestion, posLabel, negLabel,
-                    new DialogInterface.OnClickListener(){
+                    new OnClickListener(){
                         public void onClick(DialogInterface di, int val) {
                             // if the user says that he wants to quit, exit the
                             // application
@@ -741,7 +745,7 @@ public abstract class GameMainActivity extends Activity implements
      * Helper-class so that we disable the name fields in the configuration
      * if the user has selected "Network player".
      */
-    private static class SpinnerListListener implements AdapterView.OnItemSelectedListener {
+    private static class SpinnerListListener implements OnItemSelectedListener {
 
         // the textView to disable
         private TextView correspondingTextField;

@@ -1,12 +1,13 @@
 package com.example.ryanmar19.quarto.quarto;
 
 import com.example.ryanmar19.quarto.R;
+import com.example.ryanmar19.quarto.game.infoMsg.GameState;
 
 /**
  * Created by maggie on 2/19/2017.
  */
 
-public class QuartoState {
+public class QuartoState extends GameState {
 
     //Variables
     Piece pieces[] = new Piece[16];
