@@ -19,8 +19,7 @@ public class QuartoState extends GameState {
     Piece pickedPiece;
 
     //Basic Constructor
-    public QuartoState()
-    {
+    public QuartoState() {
         //piece initialize
         //Blue Large Hollow Square
         pieces[0].myPieceId = R.id.bluelargehollowsquare;
@@ -151,12 +150,12 @@ public class QuartoState extends GameState {
         pieces[15].pieceNum = 15;
 
         //board initializer
-        for(int i=0; i<16; i++) {
+        for (int i = 0; i < 16; i++) {
             boardPieces[i] = null;
         }
 
         //bank initializer
-        for(int i=0; i<16; i++) {
+        for (int i = 0; i < 16; i++) {
             bankPieces[i] = pieces[i];
         }
 
@@ -173,14 +172,13 @@ public class QuartoState extends GameState {
 
         //Pieces
         pieces = new Piece[16];
-        for(int i=0; i<16; i++)
-        {
+        for (int i = 0; i < 16; i++) {
             pieces[i] = original.pieces[i];
         }
 
         //Board
         boardPieces = new Piece[4][4];
-        for(int i=0; i<4; i++) {
+        for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 boardPieces[i][j] = original.boardPieces[i][j];
             }
@@ -188,8 +186,7 @@ public class QuartoState extends GameState {
 
         //Bank
         bankPieces = new Piece[16];
-        for(int i=0; i<16; i++)
-        {
+        for (int i = 0; i < 16; i++) {
             bankPieces[i] = original.bankPieces[i];
         }
 
@@ -202,93 +199,100 @@ public class QuartoState extends GameState {
 
     //ACTION METHODS
     //method for PickPieceAction: makes the chosen piece the game state's "pickedPiece" variable
-    public void PickPieceAction( QuartoPickPieceAction action)
-    {
-        pickedPiece = action.pickedPiece;
+    public boolean PickPieceAction(QuartoPickPieceAction action) {
+        if (action instanceof QuartoPickPieceAction)
+        {
+            pickedPiece = action.pickedPiece;
+            return true;
+        }
+        return false;
     }
 
     //method for PlacePieceAction: adds played piece to boardPieces array and removes it from boardPieces array
-    public void PlacePieceAction( QuartoPlayPieceAction action)
-    {
-        boardPieces[action.row][action.col] = action.playedPiece;
-        bankPieces[action.playedPiece.pieceNum] = null;
+    public boolean PlacePieceAction(QuartoPlayPieceAction action) {
+        if (action instanceof QuartoPlayPieceAction) {
+            boardPieces[action.row][action.col] = action.playedPiece;
+            bankPieces[action.playedPiece.pieceNum] = null;
+            return true;
+        }
+        return false;
     }
 
     //method for ClaimVictoryAction
-    public void ClaimVictoryAction( QuartoClaimVictoryAction action )
-    {
-        boolean colorEqual = true;
-        boolean sizeEqual = true;
-        boolean solidityEqual = true;
-        boolean shapeEqual = true;
+    public boolean ClaimVictoryAction(QuartoClaimVictoryAction action) {
+        if (action instanceof QuartoClaimVictoryAction) {
+            boolean colorEqual = true;
+            boolean sizeEqual = true;
+            boolean solidityEqual = true;
+            boolean shapeEqual = true;
 
-        //checking columns
-        for(int col = 0; col<4; col++)
-        {
-            for (int row = 0; row < 3; row++) {
-                //color
-                if (boardPieces[col][row].color != boardPieces[col][row + 1].color) {
-                    colorEqual = false;
+            //checking columns
+            for (int col = 0; col < 4; col++) {
+                for (int row = 0; row < 3; row++) {
+                    //color
+                    if (boardPieces[col][row].color != boardPieces[col][row + 1].color) {
+                        colorEqual = false;
+                    }
+                    //size
+                    //solidity
+                    //shape
                 }
-                //size
-                //solidity
-                //shape
+            }
+            if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
+                gameOver = true;
+                return true;
+            }
+
+            //checking rows
+            for (int row = 0; row < 4; row++) {
+                for (int col = 0; col < 3; col++) {
+                    //color
+                    if (boardPieces[col][row].color != boardPieces[col + 1][row].color) {
+                        colorEqual = false;
+                    }
+                    //size
+                    //solidity
+                    //shape
+                }
+            }
+            if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
+                gameOver = true;
+                return true;
+            }
+
+            //checking cross - top left to bottom right
+            for (int col = 0; col < 3; col++) {
+                for (int row = 0; row < 3; row++) {
+                    if (boardPieces[col][row].color != boardPieces[col + 1][row + 1].color) {
+                        colorEqual = false;
+                    }
+                    //size
+                    //solidity
+                    //shape
+                }
+            }
+            if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
+                gameOver = true;
+                return true;
+            }
+
+            //checking cross - bottom left to top right
+            for (int col = 0; col < 3; col++) {
+                for (int row = 4; row > 0; row--) {
+                    if (boardPieces[col][row].color != boardPieces[col + 1][row - 1].color) {
+                        colorEqual = false;
+                    }
+                    //size
+                    //solidity
+                    //shape
+                }
+            }
+            if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
+                gameOver = true;
+                return true;
             }
         }
-        if(colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true)
-        {
-            gameOver = true;
-        }
-
-        //checking rows
-        for(int row = 0; row<4; row++)
-        {
-            for (int col = 0; col<3; col++) {
-                //color
-                if (boardPieces[col][row].color != boardPieces[col+1][row].color) {
-                    colorEqual = false;
-                }
-                //size
-                //solidity
-                //shape
-            }
-        }
-        if(colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true)
-        {
-            gameOver = true;
-        }
-
-        //checking cross - top left to bottom right
-        for(int col = 0; col<3; col++){
-            for (int row = 0; row<3; row++) {
-                if (boardPieces[col][row].color != boardPieces[col+1][row+1].color) {
-                    colorEqual = false;
-                }
-                //size
-                //solidity
-                //shape
-            }
-        }
-        if(colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true)
-        {
-            gameOver = true;
-        }
-
-        //checking cross - bottom left to top right
-        for(int col = 0; col<3; col++){
-            for (int row = 4; row>0; row--) {
-                if (boardPieces[col][row].color != boardPieces[col+1][row-1].color) {
-                    colorEqual = false;
-                }
-                //size
-                //solidity
-                //shape
-            }
-        }
-        if(colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true)
-        {
-            gameOver = true;
-        }
+        return false;
     }
 
 
