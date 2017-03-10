@@ -10,6 +10,7 @@ import android.widget.ImageView;
 public class Piece {
 
     //Instance Variables
+    int pieceNum; //corresponds to it's spot in the bankPieces array
     int myPieceId; //image view Id
     char color; //'b' for blue, 'y' for yellow
     char size; //'s' for small, 'l' for large
