@@ -178,6 +178,36 @@ public class QuartoState extends GameState {
 
     }
 
+    //method for PickPieceAction
+    public void PickPieceAction( PickPieceAction action)
+    {
+
+    }
+
+    //method for PlacePieceAction
+    public void PlacePieceAction( PlacePieceAction action)
+    {
+
+    }
+
+    //method for ClaimVictoryAction
+    public void ClaimVictoryAction(ClaimVictoryAction action)
+    {
+
+    }
+
+    //method for CheckRulesAction
+    public void CheckRulesAction(CheckRulesAction action)
+    {
+
+    }
+
+    //method for QuitGameAction
+    public void QuitGameAction(QuitGameAction)
+    {
+        
+    }
+
     //get ID of player
     public int getPlayerId()
     {
