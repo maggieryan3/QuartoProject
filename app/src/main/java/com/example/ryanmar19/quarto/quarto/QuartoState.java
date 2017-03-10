@@ -229,13 +229,25 @@ public class QuartoState extends GameState {
             //checking columns
             for (int col = 0; col < 4; col++) {
                 for (int row = 0; row < 3; row++) {
-                    //color
+                    // compares color
                     if (boardPieces[col][row].color != boardPieces[col][row + 1].color) {
                         colorEqual = false;
                     }
-                    //size
-                    //solidity
-                    //shape
+
+                    //compares size
+                    if (boardPieces[col][row].size != boardPieces[col][row + 1].size) {
+                        sizeEqual = false;
+                    }
+
+                    //compares solidity
+                    if (boardPieces[col][row].solidity != boardPieces[col][row + 1].solidity) {
+                        solidityEqual = false;
+                    }
+
+                    //compares shape
+                    if (boardPieces[col][row].shape != boardPieces[col][row + 1].shape) {
+                        shapeEqual = false;
+                    }
                 }
             }
             if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
@@ -246,13 +258,25 @@ public class QuartoState extends GameState {
             //checking rows
             for (int row = 0; row < 4; row++) {
                 for (int col = 0; col < 3; col++) {
-                    //color
+                    //compares color
                     if (boardPieces[col][row].color != boardPieces[col + 1][row].color) {
                         colorEqual = false;
                     }
-                    //size
-                    //solidity
-                    //shape
+
+                    //compares size
+                    if (boardPieces[col][row].size != boardPieces[col+1][row].size) {
+                        sizeEqual = false;
+                    }
+
+                    //compares solidity
+                    if (boardPieces[col][row].solidity != boardPieces[col+1][row].solidity) {
+                        solidityEqual = false;
+                    }
+
+                    //compares shape
+                    if (boardPieces[col][row].shape != boardPieces[col+1][row].shape) {
+                        shapeEqual = false;
+                    }
                 }
             }
             if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
@@ -263,12 +287,30 @@ public class QuartoState extends GameState {
             //checking cross - top left to bottom right
             for (int col = 0; col < 3; col++) {
                 for (int row = 0; row < 3; row++) {
-                    if (boardPieces[col][row].color != boardPieces[col + 1][row + 1].color) {
-                        colorEqual = false;
+                    //checks (0,0) (1,1) (2,2) and (3,3)
+                    if(row == col) {
+
+                        //compares color
+                        if (boardPieces[col][row].color != boardPieces[col + 1][row + 1].color) {
+                            colorEqual = false;
+                        }
+
+                        //compares size
+                        if (boardPieces[col][row].size != boardPieces[col + 1][row + 1].size) {
+                            sizeEqual = false;
+                        }
+
+                        //compares solidity
+                        if (boardPieces[col][row].solidity != boardPieces[col + 1][row + 1].solidity) {
+                            solidityEqual = false;
+                        }
+
+                        //compares shape
+                        if (boardPieces[col][row].shape != boardPieces[col + 1][row + 1].shape) {
+                            shapeEqual = false;
+                        }
+
                     }
-                    //size
-                    //solidity
-                    //shape
                 }
             }
             if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
@@ -278,13 +320,43 @@ public class QuartoState extends GameState {
 
             //checking cross - bottom left to top right
             for (int col = 0; col < 3; col++) {
-                for (int row = 4; row > 0; row--) {
-                    if (boardPieces[col][row].color != boardPieces[col + 1][row - 1].color) {
+                for (int row = 3; row > 0; row--) {
+                    boolean a = false;
+                        if(col == 0 && row == 3){
+                              a = true;
+                        }
+                        if(col == 1 && row == 2){
+                              a = true;
+                        }
+                        if(col == 2 && row == 1){
+                              a = true;
+                        }
+
+                    if (a ==  true){
+                    //compares color
+                    if (boardPieces[col][row].color != boardPieces[col + 1][row -1].color) {
                         colorEqual = false;
                     }
-                    //size
-                    //solidity
-                    //shape
+
+                    //compares size
+                    if (boardPieces[col][row].size != boardPieces[col + 1][row -1].size) {
+                        sizeEqual = false;
+                    }
+
+                    //compares solidity
+                    if (boardPieces[col][row].solidity != boardPieces[col + 1][row -1].solidity) {
+                        solidityEqual = false;
+                    }
+
+                    //compares shape
+                    if (boardPieces[col][row].shape != boardPieces[col + 1][row - 1].shape) {
+                        shapeEqual = false;
+
+                    }
+                    }
+
+
+
                 }
             }
             if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
