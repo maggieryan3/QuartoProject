@@ -221,6 +221,7 @@ public class QuartoState extends GameState {
     //method for ClaimVictoryAction
     public boolean ClaimVictoryAction(QuartoClaimVictoryAction action) {
         if (action instanceof QuartoClaimVictoryAction) {
+
             boolean colorEqual = true;
             boolean sizeEqual = true;
             boolean solidityEqual = true;
@@ -228,32 +229,41 @@ public class QuartoState extends GameState {
 
             //checking columns
             for (int col = 0; col < 4; col++) {
+                //Check each piece in the column with the first one in that column.
                 for (int row = 0; row < 3; row++) {
                     // compares color
-                    if (boardPieces[col][row].color != boardPieces[col][row + 1].color) {
+                    if (boardPieces[col][row].color != boardPieces[col][row + 1].color)
+                    {
                         colorEqual = false;
                     }
 
                     //compares size
-                    if (boardPieces[col][row].size != boardPieces[col][row + 1].size) {
+                    if (boardPieces[col][row].size != boardPieces[col][row + 1].size)
+                    {
                         sizeEqual = false;
                     }
 
                     //compares solidity
-                    if (boardPieces[col][row].solidity != boardPieces[col][row + 1].solidity) {
+                    if (boardPieces[col][row].solidity != boardPieces[col][row + 1].solidity)
+                    {
                         solidityEqual = false;
                     }
 
                     //compares shape
-                    if (boardPieces[col][row].shape != boardPieces[col][row + 1].shape) {
+                    if (boardPieces[col][row].shape != boardPieces[col][row + 1].shape)
+                    {
                         shapeEqual = false;
                     }
                 }
+
+                //If the column we just checked has a Quarto then return. Otherwise check the next column.
+                if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true)
+                {
+                    gameOver = true;
+                    return true;
+                }
             }
-            if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
-                gameOver = true;
-                return true;
-            }
+
 
             //checking rows
             for (int row = 0; row < 4; row++) {
@@ -278,18 +288,20 @@ public class QuartoState extends GameState {
                         shapeEqual = false;
                     }
                 }
+
+                //If the row we just checked has a Quarto then return. Otherwise check the next row.
+                if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
+                    gameOver = true;
+                    return true;
+                }
             }
-            if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
-                gameOver = true;
-                return true;
-            }
+
 
             //checking cross - top left to bottom right
             for (int col = 0; col < 3; col++) {
                 for (int row = 0; row < 3; row++) {
                     //checks (0,0) (1,1) (2,2) and (3,3)
                     if(row == col) {
-
                         //compares color
                         if (boardPieces[col][row].color != boardPieces[col + 1][row + 1].color) {
                             colorEqual = false;
@@ -309,60 +321,51 @@ public class QuartoState extends GameState {
                         if (boardPieces[col][row].shape != boardPieces[col + 1][row + 1].shape) {
                             shapeEqual = false;
                         }
-
                     }
                 }
+
+                //If the diagonal we just checked has a Quarto then return.
+                if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
+                    gameOver = true;
+                    return true;
+                }
             }
+
+            //Checking cross - top right to bottom left.
+            //Holds the row value that corresponds to the column number for the next loop.
+            int row = 0;
+
+            for (int col = 3; col > 0; col--) {
+                //checks (3,0) (2,1) (1,2) and (0,3)
+                //compares color
+                if (boardPieces[col][row].color != boardPieces[col - 1][row + 1].color) {
+                    colorEqual = false;
+                }
+
+                //compares size
+                if (boardPieces[col][row].size != boardPieces[col - 1][row + 1].size) {
+                    sizeEqual = false;
+                }
+
+                //compares solidity
+                if (boardPieces[col][row].solidity != boardPieces[col - 1][row + 1].solidity) {
+                    solidityEqual = false;
+                }
+
+                //compares shape
+                if (boardPieces[col][row].shape != boardPieces[col - 1][row + 1].shape) {
+                    shapeEqual = false;
+                }
+
+                row++;
+            }
+
+            //If the diagonal we just checked has a Quarto then return.
             if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
                 gameOver = true;
                 return true;
             }
 
-            //checking cross - bottom left to top right
-            for (int col = 0; col < 3; col++) {
-                for (int row = 3; row > 0; row--) {
-                    boolean a = false;
-                        if(col == 0 && row == 3){
-                              a = true;
-                        }
-                        if(col == 1 && row == 2){
-                              a = true;
-                        }
-                        if(col == 2 && row == 1){
-                              a = true;
-                        }
-
-                    if (a ==  true){
-                    //compares color
-                    if (boardPieces[col][row].color != boardPieces[col + 1][row -1].color) {
-                        colorEqual = false;
-                    }
-
-                    //compares size
-                    if (boardPieces[col][row].size != boardPieces[col + 1][row -1].size) {
-                        sizeEqual = false;
-                    }
-
-                    //compares solidity
-                    if (boardPieces[col][row].solidity != boardPieces[col + 1][row -1].solidity) {
-                        solidityEqual = false;
-                    }
-
-                    //compares shape
-                    if (boardPieces[col][row].shape != boardPieces[col + 1][row - 1].shape) {
-                        shapeEqual = false;
-
-                    }
-                    }
-
-
-
-                }
-            }
-            if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
-                gameOver = true;
-                return true;
-            }
         }
         return false;
     }

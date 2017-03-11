@@ -5,4 +5,5 @@ package com.example.ryanmar19.quarto.quarto;
  */
 
 public class QuartoClaimVictoryAction {
+
 }
