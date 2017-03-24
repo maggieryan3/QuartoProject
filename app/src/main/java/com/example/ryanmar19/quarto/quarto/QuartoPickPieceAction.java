@@ -18,5 +18,5 @@ public class QuartoPickPieceAction extends GameAction {
         super(player);
     }
 
-    Piece pickedPiece;
+    public Piece pickedPiece;
 }

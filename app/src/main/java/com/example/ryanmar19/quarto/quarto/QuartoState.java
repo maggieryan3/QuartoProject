@@ -10,13 +10,13 @@ import com.example.ryanmar19.quarto.game.infoMsg.GameState;
 public class QuartoState extends GameState {
 
     //Variables
-    Piece pieces[] = new Piece[16];
-    Piece bankPieces[] = new Piece[16]; //Array of pieces in bank
-    Piece boardPieces[][] = new Piece[4][4]; //Array of pieces on board
+    public Piece pieces[] = new Piece[16];
+    public Piece bankPieces[] = new Piece[16]; //Array of pieces in bank
+    public Piece boardPieces[][] = new Piece[4][4]; //Array of pieces on board
     int playerId; //id is 1 or 2
     int turn; //playerId of whose turn it is
     boolean gameOver;
-    Piece pickedPiece;
+    public Piece pickedPiece;
 
     //Basic Constructor
     public QuartoState() {
@@ -425,7 +425,7 @@ public class QuartoState extends GameState {
     //get ID of piece
     public int getPieceId(Piece piece)
     {
-        return piece.myPieceId;
+        return piece.pieceNum;
     }
 
     //get color of piece
