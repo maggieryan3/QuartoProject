@@ -12,7 +12,7 @@ import com.example.ryanmar19.quarto.R;
  * Created by ryanmar19 on 2/15/2017.
  */
 
-public class ButtonListener implements View.OnClickListener
+public class ClickListener implements View.OnClickListener
 {
     int quartoStage = 0;
     int imageStage = 0; //0 = button not clicked, 1 = button clicked
