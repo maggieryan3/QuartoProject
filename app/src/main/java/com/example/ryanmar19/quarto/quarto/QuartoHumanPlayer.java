@@ -1,6 +1,11 @@
 package com.example.ryanmar19.quarto.quarto;
 
 
+import android.graphics.Color;
+import android.graphics.Point;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -12,12 +17,14 @@ import com.example.ryanmar19.quarto.game.GameHumanPlayer;
 import com.example.ryanmar19.quarto.game.GameMainActivity;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
 
+import static com.example.ryanmar19.quarto.R.id.board;
+
 /**
  * Created by maggi on 3/8/2017.
  */
 
 
-public class QuartoHumanPlayer extends GameHumanPlayer {
+public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickListener {
 	/* instance variables */
 
     // the most recent game state, as given to us by the QuartoLocalGame
@@ -25,6 +32,38 @@ public class QuartoHumanPlayer extends GameHumanPlayer {
 
     // the android activity that we are running
     private GameMainActivity myActivity;
+
+    //board surface view
+    SurfaceView boardSurfaceView;
+
+    // whether or not a piece is highlighted (selected by opponent for human to play)
+    int imageStage = 0; //0 - not highlighted/selected & 1 - highlighted/selected
+
+    //array of piece images
+    ImageView pieces[] = new ImageView[16];
+
+    //button declarations
+    Button myQuartoButton;
+    Button myExitButton;
+    TextView userMessage;
+
+    //image declarations
+    ImageView bluelargehollowsquare;
+    ImageView bluelargefilledsquare;
+    ImageView bluesmallhollowsquare;
+    ImageView bluesmallfilledsquare;
+    ImageView yellowlargehollowsquare;
+    ImageView yellowlargefilledsquare;
+    ImageView yellowsmallhollowsquare;
+    ImageView yellowsmallfilledsquare;
+    ImageView bluelargehollowcircle;
+    ImageView bluelargefilledcircle;
+    ImageView bluesmallhollowcircle;
+    ImageView bluesmallfilledcircle;
+    ImageView yellowlargehollowcircle;
+    ImageView yellowlargefilledcircle;
+    ImageView yellowsmallhollowcircle;
+    ImageView yellowsmallfilledcircle;
 
     /**
      * constructor
@@ -67,38 +106,13 @@ public class QuartoHumanPlayer extends GameHumanPlayer {
         // Load the layout resource for our GUI
         activity.setContentView(R.layout.activity_main);
 
-        //array of piece images
-        ImageView pieces[] = new ImageView[16];
-
-        //button declarations
-        Button myQuartoButton;
-        Button myExitButton;
-        TextView userMessage;
-        CheckBox turnCheckbox;
-
-        //image declarations
-        ImageView bluelargehollowsquare;
-        ImageView bluelargefilledsquare;
-        ImageView bluesmallhollowsquare;
-        ImageView bluesmallfilledsquare;
-        ImageView yellowlargehollowsquare;
-        ImageView yellowlargefilledsquare;
-        ImageView yellowsmallhollowsquare;
-        ImageView yellowsmallfilledsquare;
-        ImageView bluelargehollowcircle;
-        ImageView bluelargefilledcircle;
-        ImageView bluesmallhollowcircle;
-        ImageView bluesmallfilledcircle;
-        ImageView yellowlargehollowcircle;
-        ImageView yellowlargefilledcircle;
-        ImageView yellowsmallhollowcircle;
-        ImageView yellowsmallfilledcircle;
+        //board SV
+        boardSurfaceView = (SurfaceView)myActivity.findViewById(board);
 
         //button setup
         myQuartoButton = (Button) myActivity.findViewById(R.id.theQuartoButton);
         myExitButton = (Button) myActivity.findViewById(R.id.exitButton);
         userMessage = (TextView) myActivity.findViewById(R.id.userMessage);
-        turnCheckbox = (CheckBox) myActivity.findViewById(R.id.turnCheckbox);
 
         //pieces setup
         bluelargehollowsquare = (ImageView) myActivity.findViewById(R.id.bluelargehollowsquare);
@@ -118,7 +132,7 @@ public class QuartoHumanPlayer extends GameHumanPlayer {
         yellowsmallhollowcircle = (ImageView) myActivity.findViewById(R.id.yellowsmallhollowcircle);
         yellowsmallfilledcircle = (ImageView) myActivity.findViewById(R.id.yellowsmallfilledcircle);
 
-        //array
+        //put ImageViews into array
         pieces[0] = bluelargehollowsquare;
         pieces[1] = bluelargefilledsquare;
         pieces[2] = bluesmallhollowsquare;
@@ -137,15 +151,39 @@ public class QuartoHumanPlayer extends GameHumanPlayer {
         pieces[15] = yellowsmallfilledcircle;
 
         //listeners
-        myQuartoButton.setOnClickListener(new ClickListener());
-        myExitButton.setOnClickListener(new ClickListener());
-        turnCheckbox.setOnClickListener(new ClickListener());
+        myQuartoButton.setOnClickListener(this);
+        myExitButton.setOnClickListener(this);
 
         //piece listeners
         for(int i = 0; i<16; i++)
         {
-            pieces[i].setOnClickListener(new ClickListener());
+            pieces[i].setOnClickListener(this);
         }
 
     }
+
+    @Override
+    public void onClick(View v) {
+            int buttonSelection = v.getId();
+
+            //Quarto button
+            if(buttonSelection == R.id.theQuartoButton) {
+                Button myButton = (Button)v;
+            }
+
+            //image selections
+            for(int i=0; i<16; i++) {
+                int piece = pieces[i].getId();
+                if (buttonSelection == piece) {
+                    ImageView myImage = (ImageView)v;
+                    if (imageStage == 0) {
+                        myImage.setColorFilter(Color.argb(80, 0, 0, 0)); // Dark Tint
+                        imageStage = 1;
+                    } else if (imageStage == 1) {
+                        myImage.clearColorFilter(); // no filter
+                        imageStage = 0;
+                    }
+                }
+            }
+        }
 }
