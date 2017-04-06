@@ -17,7 +17,9 @@ import com.example.ryanmar19.quarto.game.GameHumanPlayer;
 import com.example.ryanmar19.quarto.game.GameMainActivity;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
 
+import static com.example.ryanmar19.quarto.R.drawable.blue_large_solid_square;
 import static com.example.ryanmar19.quarto.R.id.board;
+import static com.example.ryanmar19.quarto.R.id.imageView2;
 
 /**
  * Created by maggi on 3/8/2017.
@@ -64,6 +66,8 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
     ImageView yellowlargefilledcircle;
     ImageView yellowsmallhollowcircle;
     ImageView yellowsmallfilledcircle;
+
+    ImageView board1;
 
     /**
      * constructor
@@ -132,6 +136,10 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
         yellowsmallhollowcircle = (ImageView) myActivity.findViewById(R.id.yellowsmallhollowcircle);
         yellowsmallfilledcircle = (ImageView) myActivity.findViewById(R.id.yellowsmallfilledcircle);
 
+        //board ImageViews
+        board1 = (ImageView)myActivity.findViewById(imageView2);
+        board1.setOnClickListener(this);
+
         //put ImageViews into array
         pieces[0] = bluelargehollowsquare;
         pieces[1] = bluelargefilledsquare;
@@ -169,6 +177,12 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
             //Quarto button
             if(buttonSelection == R.id.theQuartoButton) {
                 Button myButton = (Button)v;
+            }
+
+            //board placement
+            if(buttonSelection == R.id.imageView2)
+            {
+                board1.setImageResource(R.mipmap.blue_large_hollow_circle);
             }
 
             //image selections

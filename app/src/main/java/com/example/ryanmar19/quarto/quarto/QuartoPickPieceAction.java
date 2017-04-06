@@ -9,14 +9,16 @@ import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
 
 public class QuartoPickPieceAction extends GameAction {
 
+    Piece pickedPiece;
+
     /**
      * constructor for GameAction
      *
      * @param player the player who created the action
      */
-    public QuartoPickPieceAction(GamePlayer player) {
+    public QuartoPickPieceAction(GamePlayer player, Piece initPiece) {
         super(player);
+        pickedPiece = initPiece;
     }
 
-    public Piece pickedPiece;
 }
