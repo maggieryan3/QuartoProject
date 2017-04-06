@@ -1,0 +1,17 @@
+Pieces mipmap ID
+        state.pieceLib[0].myImageId = R.mipmap.blue_large_hollow_square;
+        state.pieceLib[1].myImageId = R.mipmap.blue_large_solid_square;
+        state.pieceLib[2].myImageId = R.mipmap.blue_small_hollow_square;
+        state.pieceLib[3].myImageId = R.mipmap.blue_small_solid_square;
+        state.pieceLib[4].myImageId = R.mipmap.yellow_large_hollow_square;
+        state.pieceLib[5].myImageId = R.mipmap.yellow_large_solid_square;
+        state.pieceLib[6].myImageId = R.mipmap.yellow_small_hollow_square;
+        state.pieceLib[7].myImageId = R.mipmap.yellow_small_solid_square;
+        state.pieceLib[8].myImageId = R.mipmap.blue_large_hollow_square;
+        state.pieceLib[9].myImageId = R.mipmap.blue_large_solid_circle;
+        state.pieceLib[10].myImageId = R.mipmap.blue_small_hollow_circle;
+        state.pieceLib[11].myImageId = R.mipmap.blue_small_solid_circle;
+        state.pieceLib[12].myImageId = R.mipmap.yellow_large_hollow_circle;
+        state.pieceLib[13].myImageId = R.mipmap.yellow_large_solid_circle;
+        state.pieceLib[14].myImageId = R.mipmap.yellow_small_hollow_circle;
+        state.pieceLib[15].myImageId = R.mipmap.yellow_small_solid_circle;

@@ -17,10 +17,6 @@ import com.example.ryanmar19.quarto.game.GameHumanPlayer;
 import com.example.ryanmar19.quarto.game.GameMainActivity;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
 
-import static com.example.ryanmar19.quarto.R.drawable.blue_large_solid_square;
-import static com.example.ryanmar19.quarto.R.id.board;
-import static com.example.ryanmar19.quarto.R.id.imageView2;
-
 /**
  * Created by maggi on 3/8/2017.
  */
@@ -38,18 +34,21 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
     //board surface view
     SurfaceView boardSurfaceView;
 
-    // whether or not a piece is highlighted (selected by opponent for human to play)
-    int imageStage = 0; //0 - not highlighted/selected & 1 - highlighted/selected
+    //bankSurfaceView
+    SurfaceView bankSurfaceView;
 
     //array of piece images
     ImageView pieces[] = new ImageView[16];
+
+    //board array
+    ImageView boardImages[][] = new ImageView[4][4];
 
     //button declarations
     Button myQuartoButton;
     Button myExitButton;
     TextView userMessage;
 
-    //image declarations
+    //bank image declarations
     ImageView bluelargehollowsquare;
     ImageView bluelargefilledsquare;
     ImageView bluesmallhollowsquare;
@@ -67,7 +66,23 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
     ImageView yellowsmallhollowcircle;
     ImageView yellowsmallfilledcircle;
 
-    ImageView board1;
+    //board image declarations - # corresponds to xy position
+    ImageView board00;
+    ImageView board01;
+    ImageView board02;
+    ImageView board03;
+    ImageView board10;
+    ImageView board11;
+    ImageView board12;
+    ImageView board13;
+    ImageView board20;
+    ImageView board21;
+    ImageView board22;
+    ImageView board23;
+    ImageView board30;
+    ImageView board31;
+    ImageView board32;
+    ImageView board33;
 
     /**
      * constructor
@@ -110,8 +125,9 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
         // Load the layout resource for our GUI
         activity.setContentView(R.layout.activity_main);
 
-        //board SV
-        boardSurfaceView = (SurfaceView)myActivity.findViewById(board);
+        //board and bank SV
+        boardSurfaceView = (SurfaceView) myActivity.findViewById(R.id.board);
+        bankSurfaceView = (SurfaceView) myActivity.findViewById(R.id.sideboard);
 
         //button setup
         myQuartoButton = (Button) myActivity.findViewById(R.id.theQuartoButton);
@@ -136,11 +152,7 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
         yellowsmallhollowcircle = (ImageView) myActivity.findViewById(R.id.yellowsmallhollowcircle);
         yellowsmallfilledcircle = (ImageView) myActivity.findViewById(R.id.yellowsmallfilledcircle);
 
-        //board ImageViews
-        board1 = (ImageView)myActivity.findViewById(imageView2);
-        board1.setOnClickListener(this);
-
-        //put ImageViews into array
+        //put bank ImageViews into array
         pieces[0] = bluelargehollowsquare;
         pieces[1] = bluelargefilledsquare;
         pieces[2] = bluesmallhollowsquare;
@@ -158,44 +170,97 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
         pieces[14] = yellowsmallhollowcircle;
         pieces[15] = yellowsmallfilledcircle;
 
-        //listeners
+        //board ImageViews
+        board00 = (ImageView) myActivity.findViewById(R.id.b00);
+        board01 = (ImageView) myActivity.findViewById(R.id.b01);
+        board02 = (ImageView) myActivity.findViewById(R.id.b02);
+        board03 = (ImageView) myActivity.findViewById(R.id.b03);
+        board10 = (ImageView) myActivity.findViewById(R.id.b10);
+        board11 = (ImageView) myActivity.findViewById(R.id.b11);
+        board12 = (ImageView) myActivity.findViewById(R.id.b12);
+        board13 = (ImageView) myActivity.findViewById(R.id.b13);
+        board20 = (ImageView) myActivity.findViewById(R.id.b20);
+        board21 = (ImageView) myActivity.findViewById(R.id.b21);
+        board22 = (ImageView) myActivity.findViewById(R.id.b22);
+        board23 = (ImageView) myActivity.findViewById(R.id.b23);
+        board30 = (ImageView) myActivity.findViewById(R.id.b30);
+        board31 = (ImageView) myActivity.findViewById(R.id.b31);
+        board32 = (ImageView) myActivity.findViewById(R.id.b32);
+        board33 = (ImageView) myActivity.findViewById(R.id.b33);
+
+        //board[][]
+        boardImages[0][0] = board00;
+        boardImages[0][1] = board01;
+        boardImages[0][2] = board02;
+        boardImages[0][3] = board03;
+        boardImages[1][0] = board10;
+        boardImages[1][1] = board11;
+        boardImages[1][2] = board12;
+        boardImages[1][3] = board13;
+        boardImages[2][0] = board20;
+        boardImages[2][1] = board21;
+        boardImages[2][2] = board22;
+        boardImages[2][3] = board23;
+        boardImages[3][0] = board30;
+        boardImages[3][1] = board31;
+        boardImages[3][2] = board32;
+        boardImages[3][3] = board33;
+
+        //button listeners
         myQuartoButton.setOnClickListener(this);
         myExitButton.setOnClickListener(this);
 
-        //piece listeners
-        for(int i = 0; i<16; i++)
-        {
+        //bank/board listeners
+        for (int i = 0; i < 16; i++) {
             pieces[i].setOnClickListener(this);
         }
 
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                boardImages[i][j].setOnClickListener(this);
+                boardImages[i][j].setImageBitmap(null);
+            }
+        }
     }
 
     @Override
     public void onClick(View v) {
             int buttonSelection = v.getId();
 
-            //Quarto button
+            //QUARTO button
             if(buttonSelection == R.id.theQuartoButton) {
-                Button myButton = (Button)v;
+                QuartoClaimVictoryAction action = new QuartoClaimVictoryAction(this);
+                state.ClaimVictoryAction(action);
             }
 
             //board placement
-            if(buttonSelection == R.id.imageView2)
-            {
-                board1.setImageResource(R.mipmap.blue_large_hollow_circle);
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    int bPiece = boardImages[i][j].getId();
+                    if(buttonSelection == bPiece && state.pickedPiece != null)
+                    {
+                        int ID = myActivity.getResources().getIdentifier(state.pickedPiece.myImageId,"mipmap", myActivity.getPackageName());
+                        boardImages[i][j].setImageResource(ID);
+                        pieces[state.pickedPiece.pieceNum].setImageBitmap(null);
+                        pieces[state.pickedPiece.pieceNum].setBackgroundColor(0x00000000);
+                        state.pickedPiece = null;
+                        boardSurfaceView.invalidate();
+                        bankSurfaceView.invalidate();
+                    }
+                }
             }
 
             //image selections
             for(int i=0; i<16; i++) {
                 int piece = pieces[i].getId();
                 if (buttonSelection == piece) {
-                    ImageView myImage = (ImageView)v;
-                    if (imageStage == 0) {
+                    if(state.pickedPiece == null)
+                    {
+                        ImageView myImage = (ImageView)v;
                         myImage.setColorFilter(Color.argb(80, 0, 0, 0)); // Dark Tint
-                        imageStage = 1;
-                    } else if (imageStage == 1) {
-                        myImage.clearColorFilter(); // no filter
-                        imageStage = 0;
+                        state.pickedPiece = state.pieceLib[i];
+                        boardSurfaceView.invalidate();
+                        bankSurfaceView.invalidate();
                     }
                 }
             }
