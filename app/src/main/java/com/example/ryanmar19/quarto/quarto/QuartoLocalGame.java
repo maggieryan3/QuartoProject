@@ -33,6 +33,9 @@ public class QuartoLocalGame extends LocalGame {
 
     @Override
     protected boolean canMove(int playerIdx) {
+        if(playerIdx == state.turn){
+            return true;
+        }
         return false;
     }
 
@@ -48,7 +51,7 @@ public class QuartoLocalGame extends LocalGame {
             return true;
         }
         if (action instanceof QuartoPlayPieceAction) {
-            state.PickPieceAction((QuartoPickPieceAction)action);
+            state.PlayPieceAction((QuartoPlayPieceAction)action);
             return true;
         }
         if (action instanceof QuartoClaimVictoryAction) {

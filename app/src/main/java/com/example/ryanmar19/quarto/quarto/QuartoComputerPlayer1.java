@@ -32,7 +32,7 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
         // we'll get a message back that we'll ignore. If it was an illegal move,
         // we'll end up here again (and possibly again, and again). At some point,
         // we'll end up randomly pick a move that is legal.
-        game.sendAction();
+        //game.sendAction();
 
     }
 }
