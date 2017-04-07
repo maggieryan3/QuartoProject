@@ -1,9 +1,5 @@
 - Change arrays with [row][col] to [x][y] for clarity and change to standard xy plane (QuartoAlgorithm)
 - Copy quarto algorithm to QuartoClaimVictoryAction and check it works properly
-- Update HumanPlayer class to send actions/updates to game state
-- Make dumb AI:
-    *pick piece: check game state bankPieces[] array and pick first one that isn't null
-    *play piece: check game state boardPiece[][] array and pick first one that isn't null
 
 -ask nux:
     *tracking turns

@@ -181,8 +181,8 @@ public class QuartoState extends GameState {
             bankPieces[i] = pieceLib[i];
         }
 
-        //turn: player 1 goes first (human - computer #2)
-        turn = 1;
+        //turn: player 0 goes first (human - computer #1)
+        turn = 0;
 
         //game over
         gameOver = false;
@@ -229,7 +229,7 @@ public class QuartoState extends GameState {
     public boolean PickPieceAction(QuartoPickPieceAction action) {
         if (action instanceof QuartoPickPieceAction)
         {
-            pickedPiece = pieceLib[action.pieceNum];
+            this.pickedPiece = pieceLib[action.pieceNum];
             bankPieces[action.pieceNum] = null;
             this.changeTurn();
             return true;
@@ -278,13 +278,13 @@ public class QuartoState extends GameState {
     //change turn
     public void changeTurn ()
     {
-        if(turn == 1)
-        {
-            turn = 2;
-        }
-        if(turn == 2)
+        if(turn == 0)
         {
             turn = 1;
+        }
+        if(turn == 1)
+        {
+            turn = 0;
         }
     }
 
