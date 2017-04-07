@@ -181,8 +181,8 @@ public class QuartoState extends GameState {
             bankPieces[i] = pieceLib[i];
         }
 
-        //turn: player 0 goes first (human - computer #1)
-        turn = 0;
+        //turn: player 1 goes first (human - computer #2)
+        turn = 1;
 
         //game over
         gameOver = false;
@@ -229,20 +229,24 @@ public class QuartoState extends GameState {
     public boolean PickPieceAction(QuartoPickPieceAction action) {
         if (action instanceof QuartoPickPieceAction)
         {
-            this.pickedPiece = pieceLib[action.pieceNum];
-            bankPieces[action.pieceNum] = null;
-            this.changeTurn();
-            return true;
+            if(pickedPiece == null) {
+                turn = this.changeTurn();
+                this.pickedPiece = pieceLib[action.pieceNum];
+                return true;
+            }
         }
         return false;
     }
 
-    //method for PlacePieceAction: adds played piece to boardPieces array and removes it from boardPieces array
+    //method for PlayPieceAction: adds played piece to boardPieces array and removes it from boardPieces array
     public boolean PlayPieceAction(QuartoPlayPieceAction action) {
         if (action instanceof QuartoPlayPieceAction) {
-            boardPieces[action.x][action.y] = pickedPiece;
-            pickedPiece = null;
-            return true;
+            if(pickedPiece != null) {
+                boardPieces[action.x][action.y] = pickedPiece;
+                bankPieces[pickedPiece.pieceNum] = null;
+                pickedPiece = null;
+                return true;
+            }
         }
         return false;
     }
@@ -276,16 +280,19 @@ public class QuartoState extends GameState {
     }
 
     //change turn
-    public void changeTurn ()
+    public int changeTurn()
     {
         if(turn == 0)
         {
             turn = 1;
+            return turn;
         }
         if(turn == 1)
         {
             turn = 0;
+            return turn;
         }
+        return -1;
     }
 
     //get a piece from the bank

@@ -1,4 +1,3 @@
-- Change arrays with [row][col] to [x][y] for clarity and change to standard xy plane (QuartoAlgorithm)
 - Copy quarto algorithm to QuartoClaimVictoryAction and check it works properly
 
 -ask nux:

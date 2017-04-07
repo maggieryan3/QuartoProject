@@ -28,11 +28,11 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
         if (info instanceof GameState) {
             QuartoState myState = (QuartoState) info;
             //play piece
-            if (myState.pickedPiece != null) {
+            if(myState.pickedPiece != null) {
                 for (int i = 0; i < 4; i++) {
                     for (int j = 0; j < 4; j++) {
                         if (myState.boardPieces[i][j] == null) {
-                            QuartoPlayPieceAction action = new QuartoPlayPieceAction(this,i,j,myState.pickedPiece.pieceNum);
+                            QuartoPlayPieceAction action = new QuartoPlayPieceAction(this, i, j, myState.pickedPiece.pieceNum);
                             game.sendAction(action);
                             return;
                         }
@@ -40,14 +40,12 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
                 }
             }
             //pick piece
-            else if (myState.pickedPiece == null) {
-                for (int i = 0; i < 16; i++) {
-                    if (myState.bankPieces[i] == null)
-                    {
-                        QuartoPickPieceAction action = new QuartoPickPieceAction(this,i);
-                        game.sendAction(action);
-                        return;
-                    }
+            for (int i = 0; i < 16; i++) {
+                if (myState.bankPieces[i] != null)
+                {
+                    QuartoPickPieceAction action = new QuartoPickPieceAction(this,i);
+                    game.sendAction(action);
+                    return;
                 }
             }
         }

@@ -50,11 +50,11 @@ public class QuartoMainActivity extends GameMainActivity {
             }});
 
         // a computer player type (player type 1)
-        playerTypes.add(new GamePlayerType("Computer Player") {
+        playerTypes.add(new GamePlayerType("Dumb Computer Player") {
             public GamePlayer createPlayer(String name) {return new QuartoComputerPlayer1(name);}});
 
         // a computer player type (player type 2)
-        playerTypes.add(new GamePlayerType("Computer Player (GUI)") {
+        playerTypes.add(new GamePlayerType("Smart Computer Player") {
             public GamePlayer createPlayer(String name) {return new QuartoComputerPlayer2(name);}});
 
         // Create a game configuration class for Counter:
@@ -66,8 +66,8 @@ public class QuartoMainActivity extends GameMainActivity {
                 PORT_NUMBER);
 
         // Add the default players to the configuration
-        defaultConfig.addPlayer("Human", 0); // player 1: a human player
-        defaultConfig.addPlayer("Computer", 1); // player 2: a computer player
+        defaultConfig.addPlayer("Human", 0); // player 0: a human player
+        defaultConfig.addPlayer("Computer", 1); // player 1: a computer player
 
         // Set the default remote-player setup:
         // - player name: "Remote Player"

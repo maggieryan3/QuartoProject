@@ -114,11 +114,45 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
 
         // update our state; then update the display
         this.state = (QuartoState)info;
-        //updateDisplay();
+        //update board when AI plays a piece
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                if(state.boardPieces[i][j] != null)
+                {
+                    int ID = myActivity.getResources().getIdentifier(state.boardPieces[i][j].myImageId,"mipmap", myActivity.getPackageName());
+                    boardImages[i][j].setImageResource(ID);
+                    boardSurfaceView.invalidate();
+                    bankSurfaceView.invalidate();
+                }
+            }
+        }
+        //update bank when AI places a piece
+        for(int i = 0; i < 16; i++){
+            if(state.bankPieces[i] == null)
+            {
+                pieces[i].setImageBitmap(null);
+                boardSurfaceView.invalidate();
+                bankSurfaceView.invalidate();
+            }
+        }
+
+        //highlight piece when AI picks a piece for human
+        if(state.pickedPiece != null)
+        {
+            pieces[state.pickedPiece.pieceNum].setColorFilter(Color.argb(80, 0, 0, 0)); // Dark Tint
+            userMessage.setText("PLAY THE SELECTED PIECE");
+            boardSurfaceView.invalidate();
+            bankSurfaceView.invalidate();
+        }
     }
 
     @Override
     public void setAsGui(GameMainActivity activity) {
+
+        if (state != null) {
+            receiveInfo(state);
+        }
+
         // remember the activity
         myActivity = activity;
 
@@ -210,6 +244,8 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
         myQuartoButton.setOnClickListener(this);
         myExitButton.setOnClickListener(this);
 
+        userMessage.setText("PICK A PIECE FOR YOUR OPPONENT");
+
         //bank/board listeners
         for (int i = 0; i < 16; i++) {
             pieces[i].setOnClickListener(this);
@@ -243,6 +279,7 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
                         boardImages[i][j].setImageResource(ID);
                         pieces[state.pickedPiece.pieceNum].setImageBitmap(null);
                         pieces[state.pickedPiece.pieceNum].setBackgroundColor(0x00000000);
+                        userMessage.setText("PICK A PIECE FOR YOUR OPPONENT");
                         boardSurfaceView.invalidate();
                         bankSurfaceView.invalidate();
                         QuartoPlayPieceAction action = new QuartoPlayPieceAction(this,i,j,state.pickedPiece.pieceNum);

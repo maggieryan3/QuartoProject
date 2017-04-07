@@ -48,14 +48,20 @@ public class QuartoLocalGame extends LocalGame {
     protected boolean makeMove(GameAction action) {
         if (action instanceof QuartoPickPieceAction) {
             state.PickPieceAction((QuartoPickPieceAction)action);
+            this.sendUpdatedStateTo(players[0]);
+            this.sendUpdatedStateTo(players[1]);
             return true;
         }
         if (action instanceof QuartoPlayPieceAction) {
             state.PlayPieceAction((QuartoPlayPieceAction)action);
+            this.sendUpdatedStateTo(players[0]);
+            this.sendUpdatedStateTo(players[1]);
             return true;
         }
         if (action instanceof QuartoClaimVictoryAction) {
             state.ClaimVictoryAction((QuartoClaimVictoryAction)action);
+            this.sendUpdatedStateTo(players[0]);
+            this.sendUpdatedStateTo(players[1]);
             return true;
         }
         return false;
