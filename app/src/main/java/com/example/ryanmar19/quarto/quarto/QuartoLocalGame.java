@@ -14,14 +14,14 @@ public class QuartoLocalGame extends LocalGame {
     protected QuartoState state;
 
     /**
-     * Constructor for the TTTLocalGame.
+     * Constructor for the QuartoLocalGame.
      */
     public QuartoLocalGame() {
 
         // perform superclass initialization
         super();
 
-        // create a new, unfilled-in TTTState object
+        // create a new, unfilled-in QuartoState object
         state = new QuartoState();
     }
 
@@ -43,6 +43,17 @@ public class QuartoLocalGame extends LocalGame {
 
     @Override
     protected boolean makeMove(GameAction action) {
+        if (action instanceof QuartoPickPieceAction) {
+            state.PickPieceAction((QuartoPickPieceAction)action);
+            return true;
+        }
+        if (action instanceof QuartoPlayPieceAction) {
+            state.PickPieceAction((QuartoPickPieceAction)action);
+            return true;
+        }
+        if (action instanceof QuartoClaimVictoryAction) {
+
+        }
         return false;
     }
 }

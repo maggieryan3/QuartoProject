@@ -4,3 +4,6 @@
 - Make dumb AI:
     *pick piece: check game state bankPieces[] array and pick first one that isn't null
     *play piece: check game state boardPiece[][] array and pick first one that isn't null
+
+-ask nux:
+    *tracking turns

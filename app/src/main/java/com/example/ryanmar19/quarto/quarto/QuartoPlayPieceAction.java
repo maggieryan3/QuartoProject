@@ -9,16 +9,20 @@ import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
 
 public class QuartoPlayPieceAction extends GameAction {
 
+    int playedPieceNum;
+    int x;
+    int y;
+
     /**
      * constructor for GameAction
      *
      * @param player the player who created the action
      */
-    public QuartoPlayPieceAction(GamePlayer player) {
+    public QuartoPlayPieceAction(GamePlayer player, int initRow, int initCol, int initPieceNum) {
         super(player);
+        playedPieceNum = initPieceNum;
+        x = initRow;
+        y = initCol;
     }
 
-    Piece playedPiece;
-    int row;
-    int col;
 }

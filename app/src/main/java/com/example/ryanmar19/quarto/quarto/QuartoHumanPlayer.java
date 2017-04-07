@@ -231,6 +231,7 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
             if(buttonSelection == R.id.theQuartoButton) {
                 QuartoClaimVictoryAction action = new QuartoClaimVictoryAction(this);
                 state.ClaimVictoryAction(action);
+                game.sendAction(action);
             }
 
             //board placement
@@ -243,9 +244,11 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
                         boardImages[i][j].setImageResource(ID);
                         pieces[state.pickedPiece.pieceNum].setImageBitmap(null);
                         pieces[state.pickedPiece.pieceNum].setBackgroundColor(0x00000000);
-                        state.pickedPiece = null;
                         boardSurfaceView.invalidate();
                         bankSurfaceView.invalidate();
+                        QuartoPlayPieceAction action = new QuartoPlayPieceAction(this,i,j,state.pickedPiece.pieceNum);
+                        state.PlayPieceAction(action);
+                        game.sendAction(action);
                     }
                 }
             }
@@ -258,9 +261,11 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
                     {
                         ImageView myImage = (ImageView)v;
                         myImage.setColorFilter(Color.argb(80, 0, 0, 0)); // Dark Tint
-                        state.pickedPiece = state.pieceLib[i];
                         boardSurfaceView.invalidate();
                         bankSurfaceView.invalidate();
+                        QuartoPickPieceAction action = new QuartoPickPieceAction(this,i);
+                        state.PickPieceAction(action);
+                        game.sendAction(action);
                     }
                 }
             }

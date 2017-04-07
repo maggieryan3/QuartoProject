@@ -46,7 +46,6 @@ public class QuartoState extends GameState {
         pieceLib[2].pieceNum = 2;
 
         //Blue Small solid Square
-
         pieceLib[3] = new Piece();
         pieceLib[3].color = 'b';
         pieceLib[3].size = 's';
@@ -230,17 +229,19 @@ public class QuartoState extends GameState {
     public boolean PickPieceAction(QuartoPickPieceAction action) {
         if (action instanceof QuartoPickPieceAction)
         {
-            pickedPiece = action.pickedPiece;
+            pickedPiece = pieceLib[action.pieceNum];
+            bankPieces[action.pieceNum] = null;
+            this.changeTurn();
             return true;
         }
         return false;
     }
 
     //method for PlacePieceAction: adds played piece to boardPieces array and removes it from boardPieces array
-    public boolean PlacePieceAction(QuartoPlayPieceAction action) {
+    public boolean PlayPieceAction(QuartoPlayPieceAction action) {
         if (action instanceof QuartoPlayPieceAction) {
-            boardPieces[action.row][action.col] = action.playedPiece;
-            bankPieces[action.playedPiece.pieceNum] = null;
+            boardPieces[action.x][action.y] = pickedPiece;
+            pickedPiece = null;
             return true;
         }
         return false;
