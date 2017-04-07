@@ -230,7 +230,6 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
             //QUARTO button
             if(buttonSelection == R.id.theQuartoButton) {
                 QuartoClaimVictoryAction action = new QuartoClaimVictoryAction(this);
-                state.ClaimVictoryAction(action);
                 game.sendAction(action);
             }
 
@@ -247,7 +246,6 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
                         boardSurfaceView.invalidate();
                         bankSurfaceView.invalidate();
                         QuartoPlayPieceAction action = new QuartoPlayPieceAction(this,i,j,state.pickedPiece.pieceNum);
-                        state.PlayPieceAction(action);
                         game.sendAction(action);
                     }
                 }
@@ -264,7 +262,6 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
                         boardSurfaceView.invalidate();
                         bankSurfaceView.invalidate();
                         QuartoPickPieceAction action = new QuartoPickPieceAction(this,i);
-                        state.PickPieceAction(action);
                         game.sendAction(action);
                     }
                 }

@@ -55,7 +55,8 @@ public class QuartoLocalGame extends LocalGame {
             return true;
         }
         if (action instanceof QuartoClaimVictoryAction) {
-
+            state.ClaimVictoryAction((QuartoClaimVictoryAction)action);
+            return true;
         }
         return false;
     }
