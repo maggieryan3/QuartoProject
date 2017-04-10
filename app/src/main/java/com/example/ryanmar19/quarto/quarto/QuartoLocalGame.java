@@ -41,7 +41,12 @@ public class QuartoLocalGame extends LocalGame {
 
     @Override
     protected String checkIfGameOver() {
-        return null;
+        if(state.gameOver == true){
+            return this.playerNames[state.turn] + " has won!";
+        }
+        else{
+            return null;
+        }
     }
 
     @Override
@@ -60,6 +65,9 @@ public class QuartoLocalGame extends LocalGame {
         }
         if (action instanceof QuartoClaimVictoryAction) {
             state.ClaimVictoryAction((QuartoClaimVictoryAction)action);
+            if(state.ClaimVictoryAction((QuartoClaimVictoryAction)action) == true){
+                this.checkIfGameOver();
+            }
             this.sendUpdatedStateTo(players[0]);
             this.sendUpdatedStateTo(players[1]);
             return true;

@@ -19,15 +19,15 @@ import static junit.framework.Assert.assertTrue;
  * Created by moran19 on 3/23/2017.
  */
 public class QuartoStateTest {
-
+/*
     @Test
     public void testPickPieceAction() throws Exception {
-        /*QuartoState state = new QuartoState();
+        *//*QuartoState state = new QuartoState();
         QuartoPickPieceAction action = new QuartoPickPieceAction();
         action.pickedPiece = state.pieces[0];
         state.PickPieceAction(action);
         boolean blah = state.pickedPiece.equals(state.pieces[0]);
-        */
+        *//*
     }
 
     @Test
@@ -120,6 +120,6 @@ public class QuartoStateTest {
     @Test
     public void getPieceSolidity() throws Exception {
 
-    }
+    }*/
 
 }
