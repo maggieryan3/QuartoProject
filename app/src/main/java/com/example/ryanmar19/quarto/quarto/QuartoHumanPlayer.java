@@ -16,6 +16,7 @@ import com.example.ryanmar19.quarto.R;
 import com.example.ryanmar19.quarto.game.GameHumanPlayer;
 import com.example.ryanmar19.quarto.game.GameMainActivity;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
+import com.example.ryanmar19.quarto.game.infoMsg.NotYourTurnInfo;
 
 /**
  * Created by maggi on 3/8/2017.
@@ -109,11 +110,20 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
      */
     @Override
     public void receiveInfo(GameInfo info) {
+        // if it was a "not your turn" message, just ignore it
+        if (info instanceof NotYourTurnInfo) return;
+
         // ignore the message if it's not a CounterState message
         if (!(info instanceof QuartoState)) return;
 
         // update our state; then update the display
         this.state = (QuartoState)info;
+
+        //if game over update textView
+        if(state.gameOver == true){
+            userMessage.setText("GAME OVER!");
+        }
+
         //update board when AI plays a piece
         for(int i = 0; i < 4; i++){
             for(int j = 0; j < 4; j++){
@@ -121,8 +131,6 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
                 {
                     int ID = myActivity.getResources().getIdentifier(state.boardPieces[i][j].myImageId,"mipmap", myActivity.getPackageName());
                     boardImages[i][j].setImageResource(ID);
-                    boardSurfaceView.invalidate();
-                    bankSurfaceView.invalidate();
                 }
             }
         }
@@ -137,7 +145,7 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
         }
 
         //highlight piece when AI picks a piece for human
-        if(state.pickedPiece != null)
+        if(state.pickedPiece != null && state.turn == this.playerNum)
         {
             pieces[state.pickedPiece.pieceNum].setColorFilter(Color.argb(80, 0, 0, 0)); // Dark Tint
             userMessage.setText("PLAY THE SELECTED PIECE");
@@ -244,7 +252,7 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
         myQuartoButton.setOnClickListener(this);
         myExitButton.setOnClickListener(this);
 
-        userMessage.setText("PICK A PIECE FOR YOUR OPPONENT");
+        userMessage.setText("Waiting for Opponent...");
 
         //bank/board listeners
         for (int i = 0; i < 16; i++) {
@@ -261,8 +269,9 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-            int buttonSelection = v.getId();
+        if(state.turn != this.playerNum) {return;}
 
+            int buttonSelection = v.getId();
             //QUARTO button
             if(buttonSelection == R.id.theQuartoButton) {
                 QuartoClaimVictoryAction action = new QuartoClaimVictoryAction(this);
@@ -273,7 +282,7 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 4; j++) {
                     int bPiece = boardImages[i][j].getId();
-                    if(buttonSelection == bPiece && state.pickedPiece != null)
+                    if(buttonSelection == bPiece && state.pickedPiece != null && state.boardPieces[i][j] == null)
                     {
                         int ID = myActivity.getResources().getIdentifier(state.pickedPiece.myImageId,"mipmap", myActivity.getPackageName());
                         boardImages[i][j].setImageResource(ID);
@@ -292,10 +301,11 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
             for(int i=0; i<16; i++) {
                 int piece = pieces[i].getId();
                 if (buttonSelection == piece) {
-                    if(state.pickedPiece == null)
+                    if(state.pickedPiece == null && state.bankPieces[i] != null)
                     {
                         ImageView myImage = (ImageView)v;
                         myImage.setColorFilter(Color.argb(80, 0, 0, 0)); // Dark Tint
+                        userMessage.setText("Waiting for Opponent...");
                         boardSurfaceView.invalidate();
                         bankSurfaceView.invalidate();
                         QuartoPickPieceAction action = new QuartoPickPieceAction(this,i);

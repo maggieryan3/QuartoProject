@@ -305,6 +305,14 @@
             android:background="@android:color/transparent" />
 
         <ImageView
+            android:layout_width="69dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/yellow_large_solid_square"
+            android:id="@+id/yellowlargefilledsquare"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/yellow_large_solid_square" />
+
+        <ImageView
             android:layout_width="52dp"
             android:layout_height="35dp"
             app:srcCompat="@drawable/yellow_small_hollow_square"
@@ -312,14 +320,6 @@
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
             android:src="@mipmap/yellow_small_hollow_square" />
-
-        <ImageView
-            android:layout_width="69dp"
-            android:layout_height="50dp"
-            app:srcCompat="@drawable/yellow_large_solid_square"
-            android:id="@+id/yellowlargefilledsquare"
-            android:adjustViewBounds="true"
-            android:src="@mipmap/yellow_large_solid_square" />
 
         <ImageView
             android:layout_width="35dp"

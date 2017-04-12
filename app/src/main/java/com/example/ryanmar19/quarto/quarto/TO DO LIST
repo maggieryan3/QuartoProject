@@ -1,11 +1,17 @@
-Dumb ai make more random moves - random board and bank selections
+Fix quarto algorithm - returns true even when there is no quarto
 Smart AI -
     add up similarities in each column/row/x (using quarto algorithm)
     pick option w/ most similarities
     call quarto every time
+Network play
 Make selected pieces more apparent - highlight border?
 Work on pieces being centered better
-Network play
 
 -ask nux:
     Quarto - having to pick which pieces
+    Smart AI suggestions
+
+EXTRA
+Setup screen
+Sound effects
+

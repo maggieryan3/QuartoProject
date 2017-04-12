@@ -4,6 +4,8 @@ import com.example.ryanmar19.quarto.game.GamePlayer;
 import com.example.ryanmar19.quarto.game.LocalGame;
 import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
 
+import static android.os.SystemClock.sleep;
+
 /**
  * Created by maggi on 3/8/2017.
  */
@@ -43,6 +45,12 @@ public class QuartoLocalGame extends LocalGame {
     protected String checkIfGameOver() {
         if(state.gameOver == true){
             return this.playerNames[state.turn] + " has won!";
+        }
+        else if(state.boardFull == true){
+            if(state.checkIfQuarto() == true) {
+                return this.playerNames[state.turn] + " has won!";
+            }
+            else {return "Tie!";}
         }
         else{
             return null;

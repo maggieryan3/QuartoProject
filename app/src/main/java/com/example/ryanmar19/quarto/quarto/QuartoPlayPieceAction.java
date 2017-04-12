@@ -18,11 +18,11 @@ public class QuartoPlayPieceAction extends GameAction {
      *
      * @param player the player who created the action
      */
-    public QuartoPlayPieceAction(GamePlayer player, int initRow, int initCol, int initPieceNum) {
+    public QuartoPlayPieceAction(GamePlayer player, int initX, int initY, int initPieceNum) {
         super(player);
         playedPieceNum = initPieceNum;
-        x = initRow;
-        y = initCol;
+        x = initX;
+        y = initY;
     }
 
 }

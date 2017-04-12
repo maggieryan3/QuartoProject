@@ -18,36 +18,41 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
 
     @Override
     protected void receiveInfo(GameInfo info) {
-        // if it was a "not your turn" message, just ignore it
-        if (info instanceof NotYourTurnInfo) return;
+        // if it's not a TTTState message, ignore it; otherwise
+        // cast it
+        if (!(info instanceof QuartoState)) return;
+        QuartoState myState = (QuartoState) info;
 
-        // Submit our move to the game object. We haven't even checked it it's
-        // our turn, or that that position is unoccupied. If it was not our turn,
-        // we'll get a message back that we'll ignore. At some point,
-        // we'll end up randomly pick a move that is legal.
-        if (info instanceof GameState) {
-            QuartoState myState = (QuartoState) info;
-            //play piece
-            if(myState.pickedPiece != null) {
-                for (int i = 0; i < 4; i++) {
-                    for (int j = 0; j < 4; j++) {
-                        if (myState.boardPieces[i][j] == null) {
-                            QuartoPlayPieceAction action = new QuartoPlayPieceAction(this, i, j, myState.pickedPiece.pieceNum);
-                            game.sendAction(action);
-                            return;
-                        }
-                    }
-                }
-            }
-            //pick piece
-            for (int i = 0; i < 16; i++) {
-                if (myState.bankPieces[i] != null)
-                {
-                    QuartoPickPieceAction action = new QuartoPickPieceAction(this,i);
+        // if it's not our move, ignore it
+        if (myState.turn != this.playerNum) return;
+
+        //if pieckedPiece is not null, pick a random piece until we find an empty spot on board
+        if (myState.pickedPiece != null) {
+            sleep(500);
+            // pick x and y positions at random (0-3)
+            boolean playedPiece = false;
+            do {
+                int xVal = (int) (4 * Math.random());
+                int yVal = (int) (4 * Math.random());
+                if (myState.boardPieces[xVal][yVal] == null) {
+                    QuartoPlayPieceAction action = new QuartoPlayPieceAction(this, xVal, yVal, myState.pickedPiece.pieceNum);
                     game.sendAction(action);
                     return;
                 }
-            }
+            } while (playedPiece == false);
+        }
+        else if (myState.pickedPiece == null) {
+            sleep(1000);
+            //pick piece
+            boolean pickedPiece = false;
+            do {
+                int ranVal = (int) (15 * Math.random());
+                if (myState.bankPieces[ranVal] != null) {
+                    QuartoPickPieceAction action = new QuartoPickPieceAction(this, ranVal);
+                    game.sendAction(action);
+                    return;
+                }
+            }while (pickedPiece == false);
         }
     }
 }
