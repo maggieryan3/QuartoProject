@@ -46,7 +46,6 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
 
     //button declarations
     Button myQuartoButton;
-    Button myExitButton;
     TextView userMessage;
 
     //bank image declarations
@@ -173,7 +172,6 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
 
         //button setup
         myQuartoButton = (Button) myActivity.findViewById(R.id.theQuartoButton);
-        myExitButton = (Button) myActivity.findViewById(R.id.exitButton);
         userMessage = (TextView) myActivity.findViewById(R.id.userMessage);
 
         //pieces setup
@@ -250,7 +248,6 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
 
         //button listeners
         myQuartoButton.setOnClickListener(this);
-        myExitButton.setOnClickListener(this);
 
         userMessage.setText("Waiting for Opponent...");
 
@@ -277,6 +274,7 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
                 QuartoClaimVictoryAction action = new QuartoClaimVictoryAction(this);
                 game.sendAction(action);
             }
+
 
             //board placement
             for (int i = 0; i < 4; i++) {
