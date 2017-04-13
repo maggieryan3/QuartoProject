@@ -18,8 +18,7 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
 
     @Override
     protected void receiveInfo(GameInfo info) {
-        // if it's not a TTTState message, ignore it; otherwise
-        // cast it
+        // if it's not a Quarto State message, ignore it; otherwise cast it
         if (!(info instanceof QuartoState)) return;
         QuartoState myState = (QuartoState) info;
 

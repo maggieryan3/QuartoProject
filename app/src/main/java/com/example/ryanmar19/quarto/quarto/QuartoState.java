@@ -468,47 +468,6 @@ public class QuartoState extends GameState {
         return -1;
     }
 
-    //get a piece from the bank
-    public Piece getBankPiece(int pieceNumber) {
-        return bankPieces[pieceNumber];
-    }
-
-    //get a piece from the board
-    public Piece getBoardPiece(int row, int col) {
-        return boardPieces[row][col];
-    }
-
-    //moves piece from bank to board
-    public void setBoardPiece(Piece piece, int boardRow, int boardCol) {
-        //boardPieces[boardRow][boardCol] = piece;
-        //bankPieces[piece.myImageId] = null;
-    }
-
-    //get ID of piece
-    public int getPieceId(Piece piece) {
-        return piece.pieceNum;
-    }
-
-    //get color of piece
-    public char getPieceColor(Piece piece) {
-        return piece.color;
-    }
-
-    //get size of piece
-    public char getPieceSize(Piece piece) {
-        return piece.size;
-    }
-
-    //get shape of piece
-    public char getPieceShape(Piece piece) {
-        return piece.shape;
-    }
-
-    //get solidity of piece
-    public char getPieceSolidity(Piece piece) {
-        return piece.solidity;
-    }
-
     public Boolean checkIfQuarto() {
         //If any of pieces in the ys don't match then this
         //value will be set to false.
@@ -687,6 +646,69 @@ public class QuartoState extends GameState {
         }
 
         return false;
+    }
+
+    public Piece findBestPieceToPick(){
+
+        //checking vertical columns
+        for(int x = 0; x<4; x++)
+        {
+            for (int y = 0; y < 3; y++) {
+                //color
+                if (boardPieces[x][y].color != boardPieces[x][y + 1].color) {
+
+                }
+                //size
+                //solidity
+                //shape
+            }
+        }
+
+        //checking horizontal rows
+        for(int y = 0; y<4; y++)
+        {
+            for (int x = 0; x<3; x++) {
+                //color
+                if (boardPieces[x][y].color != boardPieces[x+1][y].color) {
+
+                }
+                //size
+                //solidity
+                //shape
+            }
+        }
+
+        int x = 0;
+        int y = 3;
+        //checking cross - top left to bottom right
+        for(int i=0; i<3; i++)
+        {
+            if (boardPieces[x][y].color != boardPieces[x+1][y-1].color) {
+
+            }
+            //size
+            //solidity
+            //shape
+            x = x + 1;
+            y = y - 1;
+        }
+
+        //checking cross - bottom left to top right
+        for(int i=0; i<3; i++)
+        {
+            if (boardPieces[i][i].color != boardPieces[i+1][i+1].color) {
+
+            }
+                //size
+                //solidity
+                //shape
+        }
+
+        return null;
+    }
+
+    public int findBestPlaceToPlay(QuartoState state, Piece sPiece){
+        return -1;
     }
 
 }
