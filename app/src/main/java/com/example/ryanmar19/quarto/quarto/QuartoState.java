@@ -540,10 +540,10 @@ public class QuartoState extends GameState {
                     if (boardPieces[x][y].shape != boardPieces[x + 1][y].shape)
                         shapeEqual = false;
                 } else {
-                    colorEqual = true;
-                    sizeEqual = true;
-                    solidityEqual = true;
-                    shapeEqual = true;
+                    colorEqual = false;
+                    sizeEqual = false;
+                    solidityEqual = false;
+                    shapeEqual = false;
                     break;
                 }
             }
