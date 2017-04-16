@@ -5,9 +5,6 @@ import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
 import com.example.ryanmar19.quarto.game.infoMsg.GameState;
 import com.example.ryanmar19.quarto.game.infoMsg.NotYourTurnInfo;
 
-/**
- * Created by maggi on 3/8/2017.
- */
 
 public class QuartoComputerPlayer1 extends GameComputerPlayer {
 
