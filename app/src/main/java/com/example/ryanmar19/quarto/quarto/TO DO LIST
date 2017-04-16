@@ -1,14 +1,16 @@
 Fix quarto algorithm
 Network play
 Smart AI -
+    PLAY:
+        Check for quarto - call if true
+        Place it on every open place on the board & use quarto algorithm to detect if there would be a win
+        Place if there's a winning path, pick random if not
+        Check for quarto - call if true
     PICK:
         Pick a random piece
         Place it on every open place on the board & use quarto algorithm to detect if there would be a win
         If there is a winning path - try another piece until there is a piece with no win
         If all pieces have winning path, pick random
-    PLAY:
-        Place it on every open place on the board & use quarto algorithm to detect if there would be a win
-        Place if there's a winning path, pick random if not
 
 -ask nux:
     Quarto - having to pick which pieces

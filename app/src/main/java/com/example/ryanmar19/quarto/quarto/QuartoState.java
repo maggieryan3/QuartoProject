@@ -382,7 +382,6 @@ public class QuartoState extends GameState {
                     }
                 }
 
-
                 //If the diagonal we just checked has a Quarto then return.
                 if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
                     gameOver = true;
@@ -440,9 +439,6 @@ public class QuartoState extends GameState {
                 gameOver = true;
                 return true;
             }
-
-
-            return false;
         }
         return false;
     }
