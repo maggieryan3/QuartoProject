@@ -295,11 +295,8 @@ public class QuartoState extends GameState {
                         shapeEqual = false;
                         solidityEqual = false;
                         sizeEqual = false;
-                        break;
                     }
                 }
-
-
                 //If the column we just checked has a Quarto then return. Otherwise check the next column.
                 if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
                     gameOver = true;
@@ -337,10 +334,8 @@ public class QuartoState extends GameState {
                         sizeEqual = false;
                         solidityEqual = false;
                         shapeEqual = false;
-                        break;
                     }
                 }
-
                 //If the y we just checked has a Quarto then return. Otherwise check the next y.
                 if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
                     gameOver = true;
@@ -378,7 +373,7 @@ public class QuartoState extends GameState {
                         shapeEqual = false;
                         solidityEqual = false;
                         sizeEqual = false;
-                        break;
+                        //break;
                     }
                 }
 
@@ -407,7 +402,7 @@ public class QuartoState extends GameState {
                 int y = 0;
 
                 //Check if the pieces exist.
-                if (boardPieces[x][y] != null || boardPieces[x - 1][y + 1] != null) {
+                if (boardPieces[x][y] != null && boardPieces[x - 1][y + 1] != null) {
                     //Check color.
                     if (boardPieces[x][y].color != boardPieces[x - 1][y + 1].color)
                         colorEqual = false;
@@ -430,10 +425,10 @@ public class QuartoState extends GameState {
                     shapeEqual = false;
                     solidityEqual = false;
                     sizeEqual = false;
-                    break;
+                    //
+                    // break;
                 }
             }
-
             //If the diagonal we just checked has a Quarto then return.
             if (colorEqual == true || sizeEqual == true || solidityEqual == true || shapeEqual == true) {
                 gameOver = true;
