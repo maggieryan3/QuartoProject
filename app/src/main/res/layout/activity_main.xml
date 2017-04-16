@@ -440,7 +440,7 @@
             android:layout_height="100dp"
             android:text="QUARTO!"
             android:id="@+id/theQuartoButton"
-            android:layout_marginLeft="270dp"
+            android:layout_marginLeft="410dp"
             android:elegantTextHeight="false"
             android:textSize="39sp"
             android:textStyle="bold"
@@ -449,7 +449,8 @@
             android:background="#c5d789"
             android:shadowColor="#007777"
             android:layout_marginTop="20dp"
-            android:textColorHighlight="#007777" />
+            android:textColorHighlight="#007777"
+            android:textAlignment="center" />
 
     </LinearLayout>
 
