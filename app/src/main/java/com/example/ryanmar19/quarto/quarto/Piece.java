@@ -1,13 +1,12 @@
 package com.example.ryanmar19.quarto.quarto;
 
-import android.widget.ImageView;
+import java.io.Serializable;
 
-/**
- * Created by maggi on 2/20/2017.
- * Creates a blueprint of a piece
- */
 
-public class Piece {
+public class Piece implements Serializable {
+
+    // to support the Serializable interface
+    private static final long serialVersionUID = 30672013L;
 
     //Instance Variables
     int pieceNum; //corresponds to it's spot in the bankPieces array

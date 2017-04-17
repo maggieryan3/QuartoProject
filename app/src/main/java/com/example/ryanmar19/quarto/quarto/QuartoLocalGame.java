@@ -6,9 +6,6 @@ import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
 
 import static android.os.SystemClock.sleep;
 
-/**
- * Created by maggi on 3/8/2017.
- */
 
 public class QuartoLocalGame extends LocalGame {
 

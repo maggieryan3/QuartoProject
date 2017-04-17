@@ -2,12 +2,15 @@ package com.example.ryanmar19.quarto.quarto;
 
 import com.example.ryanmar19.quarto.game.GameComputerPlayer;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
-import com.example.ryanmar19.quarto.game.infoMsg.GameState;
-import com.example.ryanmar19.quarto.game.infoMsg.NotYourTurnInfo;
 
 
 public class QuartoComputerPlayer1 extends GameComputerPlayer {
 
+    /**
+     * constructor for QuartoComputerPlayer1
+     *
+     * @param name the name of the player
+     */
     public QuartoComputerPlayer1(String name) {
         // invoke superclass constructor
         super(name);

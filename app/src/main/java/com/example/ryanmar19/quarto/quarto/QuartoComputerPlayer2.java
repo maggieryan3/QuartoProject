@@ -6,6 +6,11 @@ import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
 
 public class QuartoComputerPlayer2 extends GameComputerPlayer {
 
+    /**
+     * constructor for QuartoComputerPlayer2
+     *
+     * @param name the name of the player
+     */
     public QuartoComputerPlayer2(String name) {
         // invoke superclass constructor
         super(name);
@@ -21,21 +26,44 @@ public class QuartoComputerPlayer2 extends GameComputerPlayer {
         // if it's not our move, ignore it
         if (myState.turn != this.playerNum) return;
 
-        //if pieckedPiece is not null, pick a random piece until we find an empty spot on board
+        // If pieckedPiece is not null, find where to play the piece by
+        // placing it on every open space on the board one by one and checking
+        // if that makes a quarto. If it does, play it and call quarto.
+        // If there is no winning path with the selected piece, place it randomly.
         if (myState.pickedPiece != null) {
-            sleep(500);
-            // pick x and y positions at random (0-3)
             boolean playedPiece = false;
-            do {
-                int xVal = (int) (4 * Math.random());
-                int yVal = (int) (4 * Math.random());
-                if (myState.boardPieces[xVal][yVal] == null) {
-                    QuartoPlayPieceAction action = new QuartoPlayPieceAction(this, xVal, yVal, myState.pickedPiece.pieceNum);
-                    game.sendAction(action);
-                    return;
+            sleep(500);
+            for(int x=0; x<4; x++){
+                for(int y=0; y<4; y++){
+                    if(myState.boardPieces[x][y] == null){
+                        myState.boardPieces[x][y] = myState.pickedPiece;
+                        if(myState.checkIfQuarto() == true){
+                            myState.boardPieces[x][y] = null;
+                            QuartoPlayPieceAction action = new QuartoPlayPieceAction(this, x, y, myState.pickedPiece.pieceNum);
+                            game.sendAction(action);
+                            QuartoClaimVictoryAction win = new QuartoClaimVictoryAction(this);
+                            game.sendAction(win);
+                            return;
+                        }
+                        else {myState.boardPieces[x][y] = null;}
+                    }
                 }
-            } while (playedPiece == false);
+            }
+            // if there is no winning quarto path, pick x and y positions at random (0-3)
+            do {
+                    int xVal = (int) (4 * Math.random());
+                    int yVal = (int) (4 * Math.random());
+                    if (myState.boardPieces[xVal][yVal] == null) {
+                        QuartoPlayPieceAction action = new QuartoPlayPieceAction(this, xVal, yVal, myState.pickedPiece.pieceNum);
+                        game.sendAction(action);
+                        return;
+                    }
+                } while (playedPiece == false);
         }
+        // If picked piece is null, loop through pieces in the bank and place it
+        // on every open spot on the board to check if it makes a quarto. If not,
+        // pick it. If it does, try another piece. If all pieces will result in a quarto,
+        // pick a random piece.
         else if (myState.pickedPiece == null) {
             sleep(1000);
             //pick piece
