@@ -2,15 +2,15 @@ package com.example.ryanmar19.quarto.quarto;
 
 import com.example.ryanmar19.quarto.game.GameComputerPlayer;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
-import com.example.ryanmar19.quarto.game.infoMsg.GameState;
-import com.example.ryanmar19.quarto.game.infoMsg.NotYourTurnInfo;
 
-/**
- * Created by maggi on 3/8/2017.
- */
 
 public class QuartoComputerPlayer1 extends GameComputerPlayer {
 
+    /**
+     * constructor for QuartoComputerPlayer1
+     *
+     * @param name the name of the player
+     */
     public QuartoComputerPlayer1(String name) {
         // invoke superclass constructor
         super(name);
@@ -18,8 +18,7 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
 
     @Override
     protected void receiveInfo(GameInfo info) {
-        // if it's not a TTTState message, ignore it; otherwise
-        // cast it
+        // if it's not a Quarto State message, ignore it; otherwise cast it
         if (!(info instanceof QuartoState)) return;
         QuartoState myState = (QuartoState) info;
 
@@ -37,6 +36,15 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
                 if (myState.boardPieces[xVal][yVal] == null) {
                     QuartoPlayPieceAction action = new QuartoPlayPieceAction(this, xVal, yVal, myState.pickedPiece.pieceNum);
                     game.sendAction(action);
+                    //if there is a quarto, 50% chance we will "call" it
+                    if(myState.checkIfQuarto() == true){
+                        int random = (int) (10 * Math.random());
+                        if(random < 5){
+                            QuartoClaimVictoryAction win = new QuartoClaimVictoryAction(this);
+                            game.sendAction(win);
+                            return;
+                        }
+                    }
                     return;
                 }
             } while (playedPiece == false);

@@ -18,14 +18,9 @@ import com.example.ryanmar19.quarto.game.GameMainActivity;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
 import com.example.ryanmar19.quarto.game.infoMsg.NotYourTurnInfo;
 
-/**
- * Created by maggi on 3/8/2017.
- */
-
 
 public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickListener {
 	/* instance variables */
-
     // the most recent game state, as given to us by the QuartoLocalGame
     private QuartoState state;
 
@@ -38,10 +33,10 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
     //bankSurfaceView
     SurfaceView bankSurfaceView;
 
-    //array of piece images
+    //array of bank piece images
     ImageView pieces[] = new ImageView[16];
 
-    //board array
+    //array of board piece images
     ImageView boardImages[][] = new ImageView[4][4];
 
     //button declarations
