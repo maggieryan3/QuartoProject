@@ -1,16 +1,5 @@
-Network play
-Make sure comments are complete and descriptive in right format
-Smart AI -
-    PLAY:
-        Check for quarto - call if true
-        Place selected piece on every open space on the board until there is a winning path, place, call quarto
-        If no winning path, choose randomly
-
-    PICK:
-        Pick a random piece
-        Place it on every open place on the board & use quarto algorithm to detect if there would be a win
-        If there is a winning path - try another piece until there is a piece with no win
-        If all pieces have winning path, pick random
+Check network play
+Make sure comments are complete and descriptive in right format / add citations (nuxoll, TTTGame)
 
 EXTRA
 Make selected pieces more apparent - border?

@@ -49,7 +49,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b03"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b13"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_height="match_parent"
@@ -65,7 +65,7 @@
                     android:id="@+id/b23"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_height="match_parent"
@@ -73,7 +73,7 @@
                     android:id="@+id/b33"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
             </LinearLayout>
 
@@ -90,7 +90,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b02"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -98,7 +98,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b12"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b22"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -114,7 +114,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b32"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -130,7 +130,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b01"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -138,7 +138,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b11"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -146,7 +146,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b21"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -154,7 +154,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b31"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -170,7 +170,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b00"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -178,7 +178,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b10"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -186,7 +186,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b20"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -194,7 +194,7 @@
                     app:srcCompat="@android:color/transparent"
                     android:id="@+id/b30"
                     android:layout_weight="1"
-                    android:layout_margin="15dp" />
+                    android:layout_margin="18dp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -267,20 +267,20 @@
             android:id="@+id/bluesmallhollowsquare"
             android:layout_weight="0.21"
             android:layout_marginTop="8dp"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:adjustViewBounds="true"
             android:src="@mipmap/blue_small_hollow_square" />
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
             app:srcCompat="@drawable/blue_small_solid_square"
             android:id="@+id/bluesmallfilledsquare"
             android:layout_weight="0.28"
             android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
-            android:src="@mipmap/blue_small_solid_square" />
+            android:src="@mipmap/blue_small_solid_square"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
 
     </LinearLayout>
 
@@ -313,8 +313,8 @@
             android:src="@mipmap/yellow_large_solid_square" />
 
         <ImageView
-            android:layout_width="52dp"
-            android:layout_height="35dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:srcCompat="@drawable/yellow_small_hollow_square"
             android:id="@+id/yellowsmallhollowsquare"
             android:layout_marginTop="8dp"
@@ -322,8 +322,8 @@
             android:src="@mipmap/yellow_small_hollow_square" />
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:srcCompat="@drawable/yellow_small_solid_square"
             android:id="@+id/yellowsmallfilledsquare"
             android:layout_marginTop="8dp"
@@ -362,7 +362,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             app:srcCompat="@drawable/blue_small_hollow_circle"
             android:id="@+id/bluesmallhollowcircle"
             android:layout_marginTop="8dp"
@@ -370,8 +370,8 @@
             android:src="@mipmap/blue_small_hollow_circle" />
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:srcCompat="@drawable/blue_small_solid_circle"
             android:id="@+id/bluesmallfilledcircle"
             android:layout_weight="1"
@@ -408,7 +408,7 @@
 
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             app:srcCompat="@drawable/yellow_small_hollow_circle"
             android:id="@+id/yellowsmallhollowcircle"
             android:layout_marginTop="8dp"
@@ -416,8 +416,8 @@
             android:src="@mipmap/yellow_small_hollow_circle" />
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:srcCompat="@drawable/yellow_small_solid_circle"
             android:id="@+id/yellowsmallfilledcircle"
             android:layout_weight="1"
