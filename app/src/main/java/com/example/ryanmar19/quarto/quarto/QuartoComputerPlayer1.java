@@ -36,6 +36,15 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
                 if (myState.boardPieces[xVal][yVal] == null) {
                     QuartoPlayPieceAction action = new QuartoPlayPieceAction(this, xVal, yVal, myState.pickedPiece.pieceNum);
                     game.sendAction(action);
+                    //if there is a quarto, 50% chance we will "call" it
+                    if(myState.checkIfQuarto() == true){
+                        int random = (int) (10 * Math.random());
+                        if(random < 5){
+                            QuartoClaimVictoryAction win = new QuartoClaimVictoryAction(this);
+                            game.sendAction(win);
+                            return;
+                        }
+                    }
                     return;
                 }
             } while (playedPiece == false);
