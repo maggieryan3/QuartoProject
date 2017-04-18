@@ -128,6 +128,15 @@ public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickLi
             userMessage.setText("GAME OVER!");
         }
 
+        /**
+         External Citation
+         Date: 20 March 2017
+         Problem: Did not know how to dynamically change ImageView image resource
+         Resource:
+         http://stackoverflow.com/questions/8642823/using-setimagedrawable-
+         dynamically-to-set-image-in-an-imageview
+         Solution: I used the example code from this post.
+         */
         //update board when AI plays a piece
         for(int i = 0; i < 4; i++){
             for(int j = 0; j < 4; j++){

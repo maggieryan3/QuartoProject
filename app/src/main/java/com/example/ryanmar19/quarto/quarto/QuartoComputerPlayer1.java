@@ -29,6 +29,13 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
 
     @Override
     protected void receiveInfo(GameInfo info) {
+        /**
+         External Citation
+         Date: 25 March 2017
+         Problem: Did not know how to start a dumb AI.
+         Resource: Tick-Tack-Toe game used in class
+         Solution: I used this code as a general example of how to format this AI.
+         */
         // if it's not a Quarto State message, ignore it; otherwise cast it
         if (!(info instanceof QuartoState)) return;
         QuartoState myState = (QuartoState) info;
@@ -39,6 +46,8 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
         //if pieckedPiece is not null, pick a random piece until we find an empty spot on board
         if (myState.pickedPiece != null) {
             sleep(500);
+            boolean currentQuarto = false;
+            if(myState.checkIfQuarto() == true) currentQuarto = true;
             // pick x and y positions at random (0-3)
             boolean playedPiece = false;
             do {
@@ -47,8 +56,8 @@ public class QuartoComputerPlayer1 extends GameComputerPlayer {
                 if (myState.boardPieces[xVal][yVal] == null) {
                     QuartoPlayPieceAction action = new QuartoPlayPieceAction(this, xVal, yVal, myState.pickedPiece.pieceNum);
                     game.sendAction(action);
-                    //if there is a quarto, 50% chance we will "call" it
-                    if(myState.checkIfQuarto() == true){
+                    //if there is a new quarto, 50% chance we will "call" it
+                    if(myState.checkIfQuarto() == true && currentQuarto == false){
                         int random = (int) (10 * Math.random());
                         if(random < 5){
                             QuartoClaimVictoryAction win = new QuartoClaimVictoryAction(this);
