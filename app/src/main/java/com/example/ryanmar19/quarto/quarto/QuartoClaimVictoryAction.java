@@ -3,6 +3,17 @@ package com.example.ryanmar19.quarto.quarto;
 import com.example.ryanmar19.quarto.game.GamePlayer;
 import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
 
+/**
+ * class QuartoClaimVictoryAction
+ *
+ * is an action class which is used to create an object which defines the action
+ * where the player can win the game.
+ *
+ * @author Maggie Ryan
+ * @author Elizabeth Moran
+ * @author Lucy Davidson
+ * @version April 2017
+ */
 
 public class QuartoClaimVictoryAction extends GameAction {
 

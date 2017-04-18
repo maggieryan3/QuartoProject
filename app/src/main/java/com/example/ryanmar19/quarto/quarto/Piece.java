@@ -2,6 +2,16 @@ package com.example.ryanmar19.quarto.quarto;
 
 import java.io.Serializable;
 
+/**
+ * class Piece
+ *
+ * defines the characteristics of each playing piece in the game.
+ *
+ * @author Maggie Ryan
+ * @author Elizabeth Moran
+ * @author Lucy Davidson
+ * @version April 2017
+ */
 
 public class Piece implements Serializable {
 

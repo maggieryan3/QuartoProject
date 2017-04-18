@@ -3,6 +3,17 @@ package com.example.ryanmar19.quarto.quarto;
 import com.example.ryanmar19.quarto.game.GameComputerPlayer;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
 
+/**
+ * class QuartoComputerPlayer1
+ *
+ * is the computer player that is our dumb AI. Functions as an opponent to
+ * the human player, or to another computer player.
+ *
+ * @author Maggie Ryan
+ * @author Elizabeth Moran
+ * @author Lucy Davidson
+ * @version April 2017
+ */
 
 public class QuartoComputerPlayer1 extends GameComputerPlayer {
 

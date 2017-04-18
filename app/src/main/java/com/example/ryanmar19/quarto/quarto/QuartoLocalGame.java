@@ -6,6 +6,17 @@ import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
 
 import static android.os.SystemClock.sleep;
 
+/**
+ * class QuartoLocalGame
+ *
+ * is the class that plays the game by passing information contained
+ * in the Quarto state from player to player.
+ *
+ * @author Maggie Ryan
+ * @author Elizabeth Moran
+ * @author Lucy Davidson
+ * @version April 2017
+ */
 
 public class QuartoLocalGame extends LocalGame {
 

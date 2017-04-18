@@ -4,7 +4,15 @@ import com.example.ryanmar19.quarto.game.GamePlayer;
 import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
 
 /**
- * Created by maggi on 3/10/2017.
+ * class QuartoPickPieceAction
+ *
+ * is the action class that defines the action a player takes when
+ * they pick a piece for the other player to play on the board.
+ *
+ * @author Maggie Ryan
+ * @author Elizabeth Moran
+ * @author Lucy Davidson
+ * @version April 2017
  */
 
 public class QuartoPickPieceAction extends GameAction {

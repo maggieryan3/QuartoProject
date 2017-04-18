@@ -17,11 +17,16 @@ import com.example.ryanmar19.quarto.game.config.GamePlayerType;
 import java.util.ArrayList;
 
 /**
- * this is the primary activity for Counter game
+ * class QuartoMainActivity
+ *
+ * is the main class which functions as the creator of the game.
  *
  * @author Andrew M. Nuxoll
  * @author Steven R. Vegdahl
- * @version July 2013
+ * @author Maggie Ryan
+ * @author Elizabeth Moran
+ * @author Lucy Davidson
+ * @version April 2017
  */
 public class QuartoMainActivity extends GameMainActivity {
 

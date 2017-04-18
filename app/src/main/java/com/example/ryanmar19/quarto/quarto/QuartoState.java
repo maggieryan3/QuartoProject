@@ -4,6 +4,18 @@ import com.example.ryanmar19.quarto.R;
 import com.example.ryanmar19.quarto.game.GamePlayer;
 import com.example.ryanmar19.quarto.game.infoMsg.GameState;
 
+/**
+ * class QuartoState
+ *
+ * is the class which contains all the information about the current state
+ * of the game, (i.e. where the pieces are, whose turn it is, is the game over.)
+ *
+ * @author Maggie Ryan
+ * @author Elizabeth Moran
+ * @author Lucy Davidson
+ * @version April 2017
+ */
+
 public class QuartoState extends GameState {
 
     //Variables

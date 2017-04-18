@@ -18,6 +18,16 @@ import com.example.ryanmar19.quarto.game.GameMainActivity;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
 import com.example.ryanmar19.quarto.game.infoMsg.NotYourTurnInfo;
 
+/**
+ * class QuartoHumanPlayer
+ *
+ * is the human player which interacts with the user interface to play the game.
+ *
+ * @author Maggie Ryan
+ * @author Elizabeth Moran
+ * @author Lucy Davidson
+ * @version April 2017
+ */
 
 public class QuartoHumanPlayer extends GameHumanPlayer implements View.OnClickListener {
 	/* instance variables */
