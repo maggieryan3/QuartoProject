@@ -14,6 +14,7 @@ import com.example.ryanmar19.quarto.game.LocalGame;
 import com.example.ryanmar19.quarto.game.config.GameConfig;
 import com.example.ryanmar19.quarto.game.config.GamePlayerType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +29,10 @@ import java.util.ArrayList;
  * @author Lucy Davidson
  * @version April 2017
  */
-public class QuartoMainActivity extends GameMainActivity {
+public class QuartoMainActivity extends GameMainActivity implements Serializable {
+
+    // to support the Serializable interface
+    private static final long serialVersionUID = 30672013L;
 
     // the port number that this game will use when playing over the network
     private static final int PORT_NUMBER = 2234;

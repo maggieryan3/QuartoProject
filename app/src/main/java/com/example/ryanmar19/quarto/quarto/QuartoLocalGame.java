@@ -4,6 +4,8 @@ import com.example.ryanmar19.quarto.game.GamePlayer;
 import com.example.ryanmar19.quarto.game.LocalGame;
 import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
 
+import java.io.Serializable;
+
 import static android.os.SystemClock.sleep;
 
 /**
@@ -18,7 +20,10 @@ import static android.os.SystemClock.sleep;
  * @version April 2017
  */
 
-public class QuartoLocalGame extends LocalGame {
+public class QuartoLocalGame extends LocalGame implements Serializable {
+
+    // to support the Serializable interface
+    private static final long serialVersionUID = 30672013L;
 
     // the game's state
     protected QuartoState state;
@@ -55,14 +60,11 @@ public class QuartoLocalGame extends LocalGame {
             return this.playerNames[state.turn] + " has won!";
         }
         else if(state.boardFull == true){
-            if(state.checkIfQuarto() == true) {
-                return this.playerNames[state.turn] + " has won!";
-            }
-            else {return "Tie!";}
+            QuartoClaimVictoryAction action = new QuartoClaimVictoryAction(this.players[state.turn]);
+            state.ClaimVictoryAction(action);
+            if(state.gameOver != true){return "Tie!";}
         }
-        else{
-            return null;
-        }
+        return null;
     }
 
     @Override

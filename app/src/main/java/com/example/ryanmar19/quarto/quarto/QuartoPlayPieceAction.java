@@ -3,6 +3,8 @@ package com.example.ryanmar19.quarto.quarto;
 import com.example.ryanmar19.quarto.game.GamePlayer;
 import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
 
+import java.io.Serializable;
+
 /**
  * class QuartoPlayPieceAction
  *
@@ -15,7 +17,7 @@ import com.example.ryanmar19.quarto.game.actionMsg.GameAction;
  * @version April 2017
  */
 
-public class QuartoPlayPieceAction extends GameAction {
+public class QuartoPlayPieceAction extends GameAction implements Serializable {
 
     // to support the Serializable interface
     private static final long serialVersionUID = 30672013L;

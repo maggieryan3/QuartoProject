@@ -3,6 +3,8 @@ package com.example.ryanmar19.quarto.quarto;
 import com.example.ryanmar19.quarto.game.GameComputerPlayer;
 import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
 
+import java.io.Serializable;
+
 /**
  * class QuartoComputerPlayer1
  *
@@ -15,7 +17,10 @@ import com.example.ryanmar19.quarto.game.infoMsg.GameInfo;
  * @version April 2017
  */
 
-public class QuartoComputerPlayer1 extends GameComputerPlayer {
+public class QuartoComputerPlayer1 extends GameComputerPlayer implements Serializable {
+
+    // to support the Serializable interface
+    private static final long serialVersionUID = 30672013L;
 
     /**
      * constructor for QuartoComputerPlayer1
