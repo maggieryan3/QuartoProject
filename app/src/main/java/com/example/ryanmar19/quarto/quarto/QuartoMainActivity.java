@@ -29,10 +29,7 @@ import java.util.ArrayList;
  * @author Lucy Davidson
  * @version April 2017
  */
-public class QuartoMainActivity extends GameMainActivity implements Serializable {
-
-    // to support the Serializable interface
-    private static final long serialVersionUID = 30672013L;
+public class QuartoMainActivity extends GameMainActivity {
 
     // the port number that this game will use when playing over the network
     private static final int PORT_NUMBER = 2234;

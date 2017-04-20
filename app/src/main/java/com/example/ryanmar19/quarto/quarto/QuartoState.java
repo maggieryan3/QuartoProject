@@ -1,7 +1,5 @@
 package com.example.ryanmar19.quarto.quarto;
 
-import com.example.ryanmar19.quarto.R;
-import com.example.ryanmar19.quarto.game.GamePlayer;
 import com.example.ryanmar19.quarto.game.infoMsg.GameState;
 
 import java.io.Serializable;
@@ -267,6 +265,10 @@ public class QuartoState extends GameState implements Serializable {
                 }
                 if (boardNum == 16) {
                     boardFull = true;
+                    if(this.getNumQuarto() > numQuarto){
+                        gameOver = true;
+                    }
+
                 }
 
                 return true;

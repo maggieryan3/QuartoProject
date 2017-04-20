@@ -20,10 +20,7 @@ import static android.os.SystemClock.sleep;
  * @version April 2017
  */
 
-public class QuartoLocalGame extends LocalGame implements Serializable {
-
-    // to support the Serializable interface
-    private static final long serialVersionUID = 30672013L;
+public class QuartoLocalGame extends LocalGame {
 
     // the game's state
     protected QuartoState state;
@@ -60,9 +57,7 @@ public class QuartoLocalGame extends LocalGame implements Serializable {
             return this.playerNames[state.turn] + " has won!";
         }
         else if(state.boardFull == true){
-            QuartoClaimVictoryAction action = new QuartoClaimVictoryAction(this.players[state.turn]);
-            state.ClaimVictoryAction(action);
-            if(state.gameOver != true){return "Tie!";}
+            return "Tie!";
         }
         return null;
     }

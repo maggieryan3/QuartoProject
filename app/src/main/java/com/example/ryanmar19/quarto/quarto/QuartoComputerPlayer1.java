@@ -17,7 +17,7 @@ import java.io.Serializable;
  * @version April 2017
  */
 
-public class QuartoComputerPlayer1 extends GameComputerPlayer implements Serializable {
+public class QuartoComputerPlayer1 extends GameComputerPlayer {
 
     // to support the Serializable interface
     private static final long serialVersionUID = 30672013L;
